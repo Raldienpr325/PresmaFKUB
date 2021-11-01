@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.main');
+    return view('main');
+});
+Route::get('/opsi', function () {
+    return view('user.opsi');
 });
 Route::get('/login', function () {
-    return view('main');
+    return view('user.login');
 });
