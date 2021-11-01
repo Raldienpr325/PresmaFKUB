@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PRESMA AND DPM FKUB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href={{ asset('css/fontawesome-all.min.css') }} rel="stylesheet">
     <link href={{ asset('css/style.css') }} rel="stylesheet">
@@ -21,13 +20,15 @@
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
             </ul>
-            <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Lihat Sebagai Admin </button></a>
         </div>
+        <div id="button">
+            <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>
+        </div>
+
     </div>
 
 </body>
 <style>
-    /* general styling */
     * {
         box-sizing: border-box;
         margin: 0;
@@ -109,7 +110,7 @@
             hour = minute * 60,
             day = hour * 24;
 
-        let birthday = "Dec 30, 2021 00:00:00",
+        let birthday = "Nov 24, 2021 00:00:00",
             countDown = new Date(birthday).getTime(),
             x = setInterval(function() {
                 let now = new Date().getTime(),
@@ -126,19 +127,23 @@
                     (distance % minute) / second
                 ));
 
-                //do something later when date is reached
+                if (distance > 0) {
+                    let btn = document.getElementById("button");
+                    btn.style.display = "none ";
+                }
+
                 if (distance < 0) {
                     let headline = document.getElementById("headline"),
                         countdown = document.getElementById("countdown"),
-                        content = document.getElementById("content");
+                        content = document.getElementById("content"),
+                        btn = document.getElementById("button");
 
-                    headline.innerText = "It's The day !!  ";
+
+                    headline.innerText = "It's The day !! ";
                     countdown.style.display = "none";
                     content.style.display = "block";
-
                     clearInterval(x);
                 }
-                //seconds
             }, 0);
     })();
 </script>
