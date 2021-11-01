@@ -19,7 +19,7 @@
                 <h2 class="py-2">Universitas Brawijaya Malang</h2>
                 <p class="para-light">Web Masi Diperjuangkan Oleh pejuang Rupiah .... </p>
                 <br>
-                <button type="button" class="btn btn-primary">Login</button>
+                <a href={{ url('login') }}><button class="btn btn-primary">Login</button></a>
             </div>
         </div>
     </section>
@@ -31,7 +31,7 @@
                 <h2 class="py-2">Universitas Brawijaya Malang</h2>
                 <p class="para-light">Web Masi Diperjuangkan Oleh pejuang Rupiah .... </p>
                 <br>
-                <button type="button" class="btn btn-primary">Login</button>
+                <a href={{ url('login') }}><button class="btn btn-primary">Login</button></a>
             </div>
 
         </div>
