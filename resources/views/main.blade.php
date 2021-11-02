@@ -111,8 +111,8 @@
             hour = minute * 60,
             day = hour * 24;
 
-        let birthday = "Nov 24, 2021 00:00:00",
-            countDown = new Date(birthday).getTime(),
+        let theday = "Nov 24, 2021 00:00:00",
+            countDown = new Date(theday).getTime(),
             x = setInterval(function() {
                 let now = new Date().getTime(),
                     distance = countDown - now;
@@ -135,10 +135,12 @@
                         btn = document.getElementById("button");
 
                     headline.innerText = "It's The day !! ";
+                    btn.style.display = "block"
                     countdown.style.display = "none";
                     content.style.display = "block";
                     clearInterval(x);
-                } else {
+                }
+                if (distance > 0) {
                     let btn = document.getElementById("button");
                     btn.style.display = "none ";
                 }
