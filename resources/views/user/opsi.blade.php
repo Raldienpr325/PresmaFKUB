@@ -23,19 +23,6 @@
             </div>
         </div>
     </section>
-
-    <section class="plans d-flex align-items-center py-5" id="plans">
-        <div class="container text-light">
-            <div class="text-center pb-4">
-                <p>Web DPM FKUB</p>
-                <h2 class="py-2">Universitas Brawijaya Malang</h2>
-                <p class="para-light">Web Masi Diperjuangkan Oleh pejuang Rupiah .... </p>
-                <br>
-                <a href={{ url('login') }}><button class="btn btn-primary">Login</button></a>
-            </div>
-
-        </div>
-    </section>
 </body>
 
 </html>

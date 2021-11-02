@@ -103,6 +103,7 @@
     }
 
 </style>
+
 <script>
     (function() {
         const second = 1000,
@@ -110,7 +111,7 @@
             hour = minute * 60,
             day = hour * 24;
 
-        let birthday = "Nov 24, 2021 00:00:00",
+        let birthday = "Nov 24, 2020 00:00:00",
             countDown = new Date(birthday).getTime(),
             x = setInterval(function() {
                 let now = new Date().getTime(),
@@ -127,22 +128,19 @@
                     (distance % minute) / second
                 ));
 
-                if (distance > 0) {
-                    let btn = document.getElementById("button");
-                    btn.style.display = "none ";
-                }
-
                 if (distance < 0) {
                     let headline = document.getElementById("headline"),
                         countdown = document.getElementById("countdown"),
                         content = document.getElementById("content"),
                         btn = document.getElementById("button");
 
-
                     headline.innerText = "It's The day !! ";
                     countdown.style.display = "none";
                     content.style.display = "block";
                     clearInterval(x);
+                } else {
+                    let btn = document.getElementById("button");
+                    btn.style.display = "none ";
                 }
             }, 0);
     })();

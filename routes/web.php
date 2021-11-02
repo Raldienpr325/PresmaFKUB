@@ -22,3 +22,6 @@ Route::get('/opsi', function () {
 Route::get('/login', function () {
     return view('user.login');
 });
+Route::get('/vote', function () {
+    return view('user.vote');
+});

@@ -7,17 +7,20 @@
     }
     body {
     font-family: Arial;
-    background-color: #3498DB;
+    background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG');
+    height: 100%;
     padding: 50px;
+   
     }
     .login {
-    margin: 20px auto;
+    margin: 120px auto;
     width: 300px;
     }
     .login-screen {
     background-color: #FFF;
     padding: 20px;
-    border-radius: 5px
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 5px silver;
     }
     
     .app-title {
@@ -75,4 +78,12 @@
       color: #444;
       display: block;
         margin-top: 12px;
+    }
+
+    @media (max-width:480px){
+      body {
+        font-family: Arial;
+        background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG');
+        padding: 10px;
+        }
     }
