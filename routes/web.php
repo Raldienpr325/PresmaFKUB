@@ -28,3 +28,4 @@ Route::get('/vote', function () {
 Route::get('/admin', function () {
     return view('admin.main');
 });
+Auth::routes();
