@@ -1,6 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OpsiController;
+use App\Http\Controllers\VoteController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\VoteMainController;
+use App\Http\Controllers\CountdownController;
+use App\Http\Controllers\DashboardMainController;
 
 /*
 |--------------------------------------------------------------------------
