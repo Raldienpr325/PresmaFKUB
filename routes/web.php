@@ -29,4 +29,9 @@ Route::get('/vote', function () {
 Route::get('/admin', function () {
     return view('admin.main');
 });
-Auth::routes();
+Route::get('/admin-vote', function () {
+    return view('admin.vote.vote');
+});
+Route::get('/admin-dashboard', function () {
+    return view('admin.dashboard.dashboard');
+});
