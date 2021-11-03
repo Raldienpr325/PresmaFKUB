@@ -70,7 +70,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <form action="#" method="POST">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button href="#" class="dropdown-item">
                                 <i class="fas fa-bell mr-2"></i> Logout
