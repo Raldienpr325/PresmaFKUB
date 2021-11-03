@@ -25,12 +25,9 @@ Route::get('/login', function () {
 Route::get('/vote', function () {
     return view('user.vote');
 });
-Route::get('/admin', function () {
-    return view('admin.main');
-});
 Route::get('/admin-vote', function () {
-    return view('admin.vote.vote');
+    return view('admin.vote.main');
 });
-Route::get('/admin-dashboard', function () {
-    return view('admin.dashboard.dashboard');
+Route::get('/admin', function () {
+    return view('admin.dashboard.main');
 });
