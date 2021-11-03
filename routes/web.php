@@ -21,21 +21,17 @@ use App\Http\Controllers\DashboardMainController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
-Route::get('/opsi', function () {
-    return view('user.opsi');
-});
-Route::get('/login', function () {
-    return view('user.login');
-});
-Route::get('/vote', function () {
-    return view('user.vote');
-});
-Route::get('/admin-vote', function () {
-    return view('admin.vote.main');
-});
-Route::get('/admin', function () {
-    return view('admin.dashboard.main');
-});
+Route::get('/', [CountdownController::class, 'countdowncontroller']);
+
+Route::get('/opsi', [OpsiController::class, 'opsicontroller']);
+
+Route::get('/login', [LoginController::class, 'logincontroller']);
+
+Route::get('/vote', [VoteController::class, 'votecontroller']);
+
+Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
+
+Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
