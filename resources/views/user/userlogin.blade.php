@@ -41,7 +41,6 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-
                     <button type="submit" class="btn btn-primary">
                         {{ __('Login') }}
                     </button>
