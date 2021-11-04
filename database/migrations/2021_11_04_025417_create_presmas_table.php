@@ -1,5 +1,6 @@
 <?php
 
+use Facade\Ignition\Tabs\Tab;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,8 @@ class CreatePresmasTable extends Migration
     {
         Schema::create('presmas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama', 20);
+            $table->string('nim', 15);
             $table->timestamps();
         });
     }

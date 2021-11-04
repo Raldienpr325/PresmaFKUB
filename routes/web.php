@@ -30,6 +30,8 @@ Route::get('/login', [LoginController::class, 'logincontroller']);
 Route::get('/vote', [VoteController::class, 'votecontroller']);
 
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
+Route::get('/create-vote', [VoteMainController::class, 'create']);
+Route::post('/simpan-vote', [VoteMainController::class, 'store']);
 
 Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
 Auth::routes();

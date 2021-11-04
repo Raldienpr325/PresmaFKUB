@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\presma;
 use Illuminate\Http\Request;
 
 class VoteMainController extends Controller
@@ -13,6 +14,18 @@ class VoteMainController extends Controller
     }
     
     public function votemaincontroller(){
-        return view('admin.vote.main');
+        $dtvote = presma::all();
+        return view('admin.vote.main',compact('dtvote'));
+    }
+    public function create(){
+        return view('admin.vote.input');
+    }
+    public function store(Request $request){
+        // dd($request)->all();
+        presma::create([
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+        ]);
+        return redirect('admin-vote');
     }
 }

@@ -104,7 +104,8 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Haloo {{ Auth::user()->name }}</a> <!-- {{ Auth::user()->name }} diambil dari layouts/app.blade.php -->
+                        <a href="#" class="d-block">Haloo {{ Auth::user()->name }}</a>
+                        <!-- {{ Auth::user()->name }} diambil dari layouts/app.blade.php -->
                     </div>
                 </div>
 
