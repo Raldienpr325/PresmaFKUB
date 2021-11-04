@@ -17,37 +17,38 @@
             </div>
 
             <form method="POST" action="{{ route('login') }}">
-             @csrf
+                @csrf
 
                 <div class="login-form">
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="username" id="login-name" name="email">
+                        <input type="text" class="login-field" value="" placeholder="username" id="login-name"
+                            name="email">
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                     @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
                     <div class="control-group">
-                        <input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="password">
+                        <input type="password" class="login-field" value="" placeholder="password" id="login-pass"
+                            name="password">
                         <label class="login-field-icon fui-lock" for="login-pass"></label>
                     </div>
                     @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
-
                     <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                        {{ __('Login') }}
+                    </button>
                     @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <br> <a href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
-                     @endif
+                    @endif
                 </div>
             </form>
         </div>
