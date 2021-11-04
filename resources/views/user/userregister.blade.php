@@ -43,6 +43,17 @@
                     @enderror
 
                     <div class="control-group">
+                        <input type="text" class="login-field" value="" placeholder="level" id="login-name"
+                            name="level">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    @error('level')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="control-group">
                         <input type="password" class="login-field" value="" placeholder="password" id="login-name"
                             name="password">
                         <label class="login-field-icon fui-user" for="login-name"></label>
