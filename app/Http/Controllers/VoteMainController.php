@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Exports\PresmaExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 use App\Models\presma;
 use Illuminate\Http\Request;
+
 
 class VoteMainController extends Controller
 {
@@ -14,19 +17,43 @@ class VoteMainController extends Controller
         $this->middleware('ceklevel:admin');
     }
     
-    public function votemaincontroller(){
-        $dtvote = presma::all();
-        return view('admin.vote.main',compact('dtvote'));
+    public function votemaincontroller()
+    {
+        $dtvote = presma::paginate(15);
+        return view('admin.vote.main', compact('dtvote'));
     }
-    public function create(){
+    public function create()
+    {
         return view('admin.vote.input');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // dd($request)->all();
         presma::create([
             'nama' => $request->nama,
             'nim' => $request->nim,
         ]);
-        return redirect('admin-vote');
+        return redirect('admin-vote')->with('toast_success', 'data berhasil ditambahkan !');
+    }
+    public function edit($id)
+    {
+        $presma=presma::findorfail($id);
+        return view('admin.vote.edit', compact('presma'));
+    }
+    public function update(Request $request, $id)
+    {
+        $presma=presma::findorfail($id);
+        $presma->update($request->all());
+        return redirect('admin-vote')->with('success', 'updated!');
+    }
+    public function destroy($id)
+    {
+        $presma=presma::findorfail($id);
+        $presma->delete();
+        return back()->with('toast_success', 'data berhasil dihapus!');
+    }
+    public function presmaexport()
+    {
+        return Excel::download(new PresmaExport, 'presma.xlsx');
     }
 }
