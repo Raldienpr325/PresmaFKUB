@@ -13,48 +13,18 @@
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
-                <h1>Login</h1>
+                <h4>Login Dengan Email UB!</h4>
             </div>
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="get" action="{{ route('google.login') }}">
                 @csrf
 
                 <div class="login-form">
-                    <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="email" id="login-name"
-                            name="email">
-                        <label class="login-field-icon fui-user" for="login-name"></label>
-                    </div>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
 
-                    <div class="control-group">
-                        <input type="password" class="login-field" value="" placeholder="password" id="login-pass"
-                            name="password">
-                        <label class="login-field-icon fui-lock" for="login-pass"></label>
-                    </div>
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
+                        {{ __('LOGIN') }}
                     </button>
-                    @if (Route::has('password.request'))
-                        <br> <a href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
-                    <br>
-                    @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
-                    <br>
-                    <a class="nav-link" href="{{ route('google.login') }}">{{ __('Login With Google') }}</a>
+
                 </div>
             </form>
         </div>
