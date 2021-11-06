@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
+    {{-- <style>
         body{
             background: url(/img/ub2.png) no-repeat center center fixed; 
         -webkit-background-size: cover;
@@ -14,24 +14,22 @@
         -o-background-size: cover;
          background-size: cover;
         }
-    </style>
+    </style> --}}
 </head>
 
 <body>
-    <p>ini adalah halaman vote</p>
     @foreach ($datas as $data)
+    <div class="card" style="width: 18rem;">
+        <img src="{{ asset('storage/'. $data->foto) }}" style="max-height: 140px" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ $data->nama }}</h5>
+          <a href="#"><button class="btn btn-danger">Vote</button></a>
+        </div>
+      </div>
+      
         <h3>{{ $data->nama }}</h3>
         <h3>{{ $data->nim }}</h3>
     @endforeach
-
-
-
-
-
-
-
-
-
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf

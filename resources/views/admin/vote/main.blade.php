@@ -18,7 +18,9 @@
                 </tr>
                 @foreach ($dtvote as $item)
                     <tr>
-                        <td>{{ $item->foto }}</td>
+                        <td>   
+                            <img src="{{ asset('storage/'. $item->foto) }}" style="max-height: 140px">
+                        </td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->prodi }}</td>
                         <td>{{ $item->angkatan }}</td>
