@@ -56,4 +56,4 @@ class VoteMainController extends Controller
     {
         return Excel::download(new PresmaExport, 'presma.xlsx');
     }
-}
+ }

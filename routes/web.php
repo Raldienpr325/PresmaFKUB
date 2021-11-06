@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpsiController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VoteMainController;
 use App\Http\Controllers\CountdownController;
 use App\Http\Controllers\DashboardMainController;
@@ -27,7 +28,8 @@ Route::get('/opsi', [OpsiController::class, 'opsicontroller']);
 
 Route::get('/login', [LoginController::class, 'logincontroller']);
 
-Route::get('/vote', [VoteController::class, 'votecontroller']);
+// Route::get('/vote', [VoteController::class, 'votecontroller'])->name('vote');
+Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote');
 
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
 Route::get('/create-vote', [VoteMainController::class, 'create']);
@@ -43,3 +45,6 @@ Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmainco
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
+// Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
