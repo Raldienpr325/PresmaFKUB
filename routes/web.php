@@ -24,9 +24,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/', [CountdownController::class, 'countdowncontroller']);
-
 Route::get('/opsi', [OpsiController::class, 'opsicontroller']);
-
 Route::get('/login', [LoginController::class, 'logincontroller']);
 
 // Route::get('/vote', [VoteController::class, 'votecontroller'])->name('vote');
@@ -37,16 +35,14 @@ Route::get('/create-vote', [VoteMainController::class, 'create']);
 Route::get('/edit-vote/{id}', [VoteMainController::class, 'edit']);
 Route::post('/update-vote/{id}', [VoteMainController::class, 'update']);
 Route::get('/delete-vote/{id}', [VoteMainController::class, 'destroy']);
-;
 Route::get('/export-vote', [VoteMainController::class, 'presmaexport']);
-
 Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-
 Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+<<<<<<< HEAD
 Route::get('auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
 // Route::get('auth/google', function(){
@@ -62,3 +58,7 @@ Route::get('auth/google/callback', [App\Http\Controllers\GoogleController::class
 
 //     }
 // });
+=======
+// Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
+// Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
+>>>>>>> 87b98f3c282be271d6c23f59fbca3d620b567d9d
