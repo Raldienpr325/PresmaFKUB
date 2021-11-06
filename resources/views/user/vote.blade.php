@@ -27,7 +27,7 @@
         </div>
       </div>
         <h3>{{ $data->angkatan }}</h3>
-        <h3>{{ $data->Prodi }}</h3>
+        <h3>{{ $data->prodi }}</h3>
     @endforeach
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
