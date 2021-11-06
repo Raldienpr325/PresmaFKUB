@@ -25,10 +25,20 @@ use Laravel\Socialite\Facades\Socialite;
 
 // Route::get('/vote', [VoteController::class, 'votecontroller'])->name('vote');
 Auth::routes();
-Route::get('/', [CountdownController::class, 'countdowncontroller']);
+
+
+//khusu guest
+Route::get('/', [CountdownController::class, 'countdowncontroller'])->middleware('guest');
 Route::get('/opsi', [OpsiController::class, 'opsicontroller'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
-Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote');
+
+
+//khusus user
+Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
+
+
+//khusu admin
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
 Route::get('/create-vote', [VoteMainController::class, 'create']);
 Route::get('/edit-vote/{id}', [VoteMainController::class, 'edit']);
@@ -37,6 +47,5 @@ Route::get('/delete-vote/{id}', [VoteMainController::class, 'destroy']);
 Route::get('/export-vote', [VoteMainController::class, 'presmaexport']);
 Route::post('/simpan-vote', [VoteMainController::class, 'store']);
 Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
