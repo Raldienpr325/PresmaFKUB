@@ -5,6 +5,7 @@ use App\Exports\PresmaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\presma;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 
@@ -29,11 +30,14 @@ class VoteMainController extends Controller
     public function store(Request $request)
     {
         // dd($request)->all();
-        presma::create([
-            'nama' => $request->nama,
-            'nim' => $request->nim,
-        ]);
-        return redirect('admin-vote')->with('toast_success', 'data berhasil ditambahkan !');
+       $validatedData = $request->validate([
+           'foto' =>'required',
+           'nama' => 'required',
+           'angkatan' => 'required',
+           'prodi' => 'required',
+       ]);
+       presma::create($validatedData);
+       return redirect('admin-vote')->with('toast_success', 'data berhasil ditambahkan !');
     }
     public function edit($id)
     {
@@ -56,4 +60,4 @@ class VoteMainController extends Controller
     {
         return Excel::download(new PresmaExport, 'presma.xlsx');
     }
-}
+ }

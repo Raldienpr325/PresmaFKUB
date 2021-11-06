@@ -11,17 +11,17 @@
             <table class="table table-bordered">
                 <tr>
                     <th>Foto</th>
-                    <th>Visi-Misi</th>
-                    <th>nama</th>
-                    <th>nim</th>
+                    <th>Nama</th>
+                    <th>Prodi</th>
+                    <th>Tahun Angkatan</th>
                     <th>action</th>
                 </tr>
                 @foreach ($dtvote as $item)
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->foto }}</td>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->nim }}</td>
+                        <td>{{ $item->prodi }}</td>
+                        <td>{{ $item->angkatan }}</td>
                         <td>
                             <a href="{{ url('delete-vote', $item->id) }}"> <button
                                     class="btn btn-danger">delete</button></a>
