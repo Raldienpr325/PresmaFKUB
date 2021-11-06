@@ -31,11 +31,14 @@ class VoteMainController extends Controller
     {
         // dd($request)->all();
        $validatedData = $request->validate([
-           'foto' =>'required',
+           'foto' =>'image|file|max:2000',
            'nama' => 'required',
            'angkatan' => 'required',
            'prodi' => 'required',
        ]);
+       if($request->file('foto')){
+           $validatedData['foto'] = $request->file('foto')->store('post-images');
+       }
        presma::create($validatedData);
        return redirect('admin-vote')->with('toast_success', 'data berhasil ditambahkan !');
     }

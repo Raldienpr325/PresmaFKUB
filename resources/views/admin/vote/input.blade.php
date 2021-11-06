@@ -5,7 +5,7 @@
     </div>
     <div class="content">
         <div class="card-body">
-            <form action="{{ url('simpan-vote') }}" method="POST">
+            <form action="{{ url('simpan-vote') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="file" id="foto" name="foto"  class="form-control @error('foto') is-invalid 

@@ -11,6 +11,7 @@
 <body>
     <p>ini adalah halaman vote</p>
     @foreach ($datas as $data)
+        <img src="{{ asset('storage/'. $data->foto) }}" style="max-height: 140px" alt="">
         <h3>{{ $data->nama }}</h3>
         <h3>{{ $data->nim }}</h3>
     @endforeach

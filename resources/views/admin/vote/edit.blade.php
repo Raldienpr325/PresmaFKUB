@@ -5,12 +5,13 @@
     </div>
     <div class="content">
         <div class="card-body">
-            <form action="{{ url('update-vote', $presma->id) }}" method="POST">
+            <form action="{{ url('update-vote', $presma->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-               <div class="form-group">
-                    <input type="file" id="foto" name="foto"  class="form-control @error('foto') is-invalid 
-                    @enderror" placeholder="foto Presma" required autofocus  value="{{ $presma->foto }}">
-                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label @error('foto') is-invalid
+                    @enderror">Photo</label>
+                    <input class="form-control" type="file" id="foto" name="foto" value="{{ $presma->foto }}">
+                  </div>
                 <div class="form-group">
                     <input type="text" id="nama" name="nama"  class="form-control @error('nama') is-invalid 
                     @enderror" placeholder="Nama Presma" required autofocus  value="{{ $presma->nama }}">
