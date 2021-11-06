@@ -26,8 +26,8 @@
           <a href="#"><button class="btn btn-danger">Vote</button></a>
         </div>
       </div>
-        <h3>{{ $data->nama }}</h3>
-        <h3>{{ $data->nim }}</h3>
+        <h3>{{ $data->angkatan }}</h3>
+        <h3>{{ $data->Prodi }}</h3>
     @endforeach
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
