@@ -14,8 +14,8 @@ class VoteMainController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('ceklevel:admin');
+        // $this->middleware('auth');
+        // $this->middleware('ceklevel:admin');
     }
     
     public function votemaincontroller()
