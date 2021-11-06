@@ -47,12 +47,18 @@
         display: flex;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            background: url(/img/ubedit.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+         -moz-background-size: cover;
+        -o-background-size: cover;
+         background-size: cover;
     }
 
     .container {
         color: white;
         margin: 0 auto;
         text-align: center;
+        background-color: #e1e1e16b;
     }
 
     h1 {

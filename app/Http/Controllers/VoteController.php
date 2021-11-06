@@ -10,13 +10,13 @@ class VoteController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         //diarahkan kehalaman login
     }
     
-    // public function votecontroller(){
-    //     return view('user.vote');
-    // }
+    public function votecontroller(){
+        return view('user.vote');
+    }
 
     public function datavotepresma(){
         $datapresma = presma::all();

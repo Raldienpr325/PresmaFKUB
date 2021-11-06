@@ -10,6 +10,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VoteMainController;
 use App\Http\Controllers\CountdownController;
 use App\Http\Controllers\DashboardMainController;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
-// Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
+Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
