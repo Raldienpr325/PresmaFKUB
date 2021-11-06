@@ -53,8 +53,8 @@
                     @if (Route::has('register'))
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
-                    {{-- <br> --}}
-                    {{-- <a class="nav-link" href="{{ route('google.login') }}">{{ __('Login With Google') }}</a> --}}
+                    <br>
+                    <a class="nav-link" href="{{ route('google.login') }}">{{ __('Login With Google') }}</a>
                 </div>
             </form>
         </div>

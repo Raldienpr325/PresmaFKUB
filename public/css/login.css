@@ -1,89 +1,93 @@
 * {
     box-sizing: border-box;
-    }
-    
-    *:focus {
-        outline: none;
-    }
-    body {
+}
+
+*:focus {
+    outline: none;
+}
+body {
     font-family: Arial;
-    background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG');
+    /* background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG'); */
     height: 100%;
     padding: 50px;
-   
-    }
-    .login {
+    background: url(/img/ub3edit.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.login {
     margin: 120px auto;
     width: 300px;
-    }
-    .login-screen {
-    background-color: #FFF;
+}
+.login-screen {
+    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 5px 5px silver;
-    }
-    
-    .app-title {
+}
+
+.app-title {
     text-align: center;
     color: #777;
-    }
-    
-    .login-form {
+}
+
+.login-form {
     text-align: center;
-    }
-    .control-group {
+}
+.control-group {
     margin-bottom: 10px;
-    }
-    
-    input {
+}
+
+input {
     text-align: center;
-    background-color: #ECF0F1;
+    background-color: #ecf0f1;
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;
     font-weight: 200;
     padding: 10px 0;
     width: 250px;
-    transition: border .5s;
-    }
-    
-    input:focus {
-    border: 2px solid #3498DB;
-    box-shadow: none;
-    }
-    
-    .btn {
-      border: 2px solid transparent;
-      background: #3498DB;
-      color: #ffffff;
-      font-size: 16px;
-      line-height: 25px;
-      padding: 10px 0;
-      text-decoration: none;
-      text-shadow: none;
-      border-radius: 3px;
-      box-shadow: none;
-      transition: 0.25s;
-      display: block;
-      width: 250px;
-      margin: 0 auto;
-    }
-    
-    .btn:hover {
-      background-color: #2980B9;
-    }
-    
-    .login-link {
-      font-size: 12px;
-      color: #444;
-      display: block;
-        margin-top: 12px;
-    }
+    transition: border 0.5s;
+}
 
-    @media (max-width:480px){
-      body {
+input:focus {
+    border: 2px solid #3498db;
+    box-shadow: none;
+}
+
+.btn {
+    border: 2px solid transparent;
+    background: #3498db;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+    body {
         font-family: Arial;
-        background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG');
+        background-image: url("https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG");
         padding: 10px;
-        }
     }
+}
