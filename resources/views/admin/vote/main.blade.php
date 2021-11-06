@@ -3,19 +3,23 @@
     <div class="content">
         <div class="card card-info card-outline">
             <div class="card-header">
-                <a href="{{ url('create-vote') }}" class="btn btn-success">add data <i class="fas fa-plus"></i></a>
+                <a href="{{ url('create-vote') }}" class="btn btn-success">add data</a>
                 <a href="{{ url('export-vote') }}" class="btn btn-warning"> Export</a>
             </div>
         </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
+                    <th>Foto</th>
+                    <th>Visi-Misi</th>
                     <th>nama</th>
                     <th>nim</th>
                     <th>action</th>
                 </tr>
                 @foreach ($dtvote as $item)
                     <tr>
+                        <td></td>
+                        <td></td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->nim }}</td>
                         <td>
