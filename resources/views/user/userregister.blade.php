@@ -15,7 +15,6 @@
             <div class="app-title">
                 <h1>Register</h1>
             </div>
-
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 

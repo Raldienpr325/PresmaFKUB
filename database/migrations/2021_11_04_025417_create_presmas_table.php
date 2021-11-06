@@ -16,10 +16,10 @@ class CreatePresmasTable extends Migration
     {
         Schema::create('presmas', function (Blueprint $table) {
             $table->id();
-            $table->string('foto',10);
-            $table->string('angkatan',20);
+            $table->string('foto',100);
+            $table->string('angkatan',4);
             $table->string('nama', 20);
-            $table->string('prodi', 15);
+            $table->string('prodi', 10);
             $table->timestamps();
         });
     }
