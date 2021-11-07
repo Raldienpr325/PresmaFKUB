@@ -18,11 +18,6 @@ class GoogleController extends Controller
         try{
             $user = Socialite::driver('google')->user();
             // dd($user);
-            if( $user->user['locale'] == 'id'){
-                return redirect('login')->with('failedlogin', 'Login Failed! Gunakan Email UB');
-                exit;
-            }
-            else if( $user->user['locale'] == 'en' ){
             $finduser = User::where('google_id',$user->getId())->first();
             if($finduser){
                 Auth::login($finduser);
@@ -32,16 +27,16 @@ class GoogleController extends Controller
                 // dd($user);
                 $newUser = User::create([
                     'name' => $user->name,
+                    // 'username' => $user->name,
                     'email' => $user->email,
                     'google_id' => $user->id,
-                    'locale' => $user->user['locale'],
+                    'hd' => $user->user['hd'],
                     'password' => bcrypt('12345678'),
                 ]);
                 // dd($user);
                 Auth::login($newUser);
                 return redirect()->intended('/');
             }
-        }
         } catch (\Throwable $th) {
 
         }

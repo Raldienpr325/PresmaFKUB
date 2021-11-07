@@ -18,7 +18,7 @@ class Authenticate extends Middleware
             return route('login');
         }
         else{
-            return route('vote');
+            return url('/ceknim');
         }
     }
 }

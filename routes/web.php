@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpsiController;
 use App\Http\Controllers\VoteController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CeknimController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VoteMainController;
 use App\Http\Controllers\CountdownController;
 use App\Http\Controllers\DashboardMainController;
-use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,12 @@ Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')
 //khusus user
 Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
 Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
+Route::get('/halaman-ceknim', [CeknimController::class, 'index'])->middleware('auth');
+Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim')->middleware('auth');
 
 
 //khusu admin
+Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('loginadmin');
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
 Route::get('/create-vote', [VoteMainController::class, 'create']);
 Route::get('/edit-vote/{id}', [VoteMainController::class, 'edit']);

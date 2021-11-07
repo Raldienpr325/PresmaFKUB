@@ -27,6 +27,7 @@ class VoteMainController extends Controller
     {
         return view('admin.vote.input');
     }
+    
     public function store(Request $request)
     {
         // dd($request)->all();

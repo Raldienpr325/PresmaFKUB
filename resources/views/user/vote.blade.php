@@ -18,6 +18,14 @@
 </head>
 
 <body>
+
+    @if(session()->has('toast_success'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('toast_success') }}
+        <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+    </div>
+    @endif
+
     @foreach ($datas as $data)
     <div class="card" style="width: 18rem;">
         <img src="{{ asset('storage/'. $data->foto) }}" style="max-height: 140px" alt="" class="card-img-top">
