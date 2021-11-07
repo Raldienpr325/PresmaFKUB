@@ -13,6 +13,13 @@
     <div class="login">
         <div class="login-screen">
 
+            @if(session()->has('failedlogin'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('failedlogin') }}
+                <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+            </div>
+            @endif
+            
             <div class="app-title">
                 <h4>Masukkan NIM Anda</h4>
             </div>

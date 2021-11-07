@@ -41,7 +41,7 @@ Route::get('/halaman-ceknim', [CeknimController::class, 'index'])->middleware('a
 Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim')->middleware('auth');
 
 
-//khusu admin
+//khusus admin
 Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('loginadmin');
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
 Route::get('/create-vote', [VoteMainController::class, 'create']);
