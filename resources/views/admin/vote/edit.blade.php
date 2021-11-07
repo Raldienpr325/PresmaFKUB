@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <input type="text" id="angkatan" name="angkatan" class="form-control @error('angkatan') is-invalid     
-                    @enderror" placeholder="angkatan Presma" required autofocus  value="{{ $presma->angkatan }}">
+                  @enderror" placeholder="angkatan Presma" required autofocus  value="{{ $presma->angkatan }}">
                 </div>
                 <div class="form-group">
                     <input type="text" id="prodi" name="prodi" class="form-control @error('prodi') is-invalid     
