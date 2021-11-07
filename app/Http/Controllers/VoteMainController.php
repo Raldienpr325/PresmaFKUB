@@ -31,7 +31,7 @@ class VoteMainController extends Controller
     {
         // dd($request)->all();
        $validatedData = $request->validate([
-           'foto' =>'image|file|max:2000',
+           'foto' =>'image|file|max:5000',
            'nama' => 'required',
            'angkatan' => 'required',
            'prodi' => 'required',
