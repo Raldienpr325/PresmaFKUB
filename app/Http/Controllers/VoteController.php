@@ -30,6 +30,6 @@ class VoteController extends Controller
             ['presmas_id'=>$id,'users_id'=>Auth::user()->id] #Jika data belum ada maka add presmas_id dan users_id
         );
         
-      return view('user.Donevote')->with('success','data berhasil dipilih');
+      return view('user.Donevote');
     }
 }
