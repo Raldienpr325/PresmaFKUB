@@ -37,8 +37,12 @@ Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')
 //khusus user
 // Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
 Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
+<<<<<<< HEAD
 Route::get('/halaman-ceknim', [CeknimController::class, 'index'])->middleware('auth');
 Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim')->middleware('auth');
+=======
+Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote'])->name('done')->middleware('auth');
+>>>>>>> 49c02c4a2617dfae8141ac8a3a0cbddfadddff02
 
 //khusus admin
 Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('loginadmin');
