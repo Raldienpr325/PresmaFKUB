@@ -35,9 +35,16 @@
 
                 <div class="control-group">
                     <input type="text" class="login-field" value="" placeholder="NIM" id="login-name"
-                        name="NIM">
+                    name="NIM">
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="pemilih" id="flexCheckDefault" name="level">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Pemilih
+                    </label>
+                  </div>
 
                 <div class="login-form">
 

@@ -35,11 +35,10 @@ Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')
 
 
 //khusus user
-Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
+// Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
 Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
 Route::get('/halaman-ceknim', [CeknimController::class, 'index'])->middleware('auth');
 Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim')->middleware('auth');
-
 
 //khusus admin
 Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('loginadmin');
