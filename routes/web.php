@@ -36,6 +36,7 @@ Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')
 //khusus user
 Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
 Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
+Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote'])->name('done')->middleware('auth');
 
 
 //khusu admin

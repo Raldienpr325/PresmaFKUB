@@ -98,7 +98,7 @@
                             <a href="{{ url('admin-dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Dashboard
+                                    Hasil Vote
                                 </p>
                             </a>
                         </li>
@@ -107,7 +107,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 
                                 <p>
-                                    vote
+                                    Input Presma
                                 </p>
                             </a>
                         </li>
