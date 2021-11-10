@@ -23,10 +23,15 @@ class CeknimController extends Controller
         if( strlen($validasiNIM['0']) == "2" && strlen($validasiNIM['1']) == "9"){
             Ceknim::create($validatedData);
             // $kirim_NIM = $validatedData['NIM'];
-            $datapresma = presma::all();
-            return view('user.vote', [
-                'datas' => $datapresma,
-            ]);
+            // $datapresma = presma::all();
+            // return view('user.vote', [
+            //     'datas' => $datapresma,
+            // ]);
+            // $datapresma = presma::all();
+            // return redirect('vote', [
+            //     'datas' => $datapresma,
+            // ]);
+            return redirect('/vote-presma');
         }
         else {
             return redirect('/halaman-ceknim')->with('failedlogin', 'NIM anda tidak sesuai!!');

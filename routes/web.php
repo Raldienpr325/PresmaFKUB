@@ -35,16 +35,13 @@ Route::get('/opsi', [OpsiController::class, 'opsicontroller'])->middleware('gues
 Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
 Route::get('/admin-login', [AdminLoginController::class, 'index']);
 Route::post('/adminlogindata', [AdminLoginController::class, 'adminlogin'])->name('loginadmin')->middleware('guest');
-
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
 
 //khusus user
 // Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
-
 //khusus admin
-// Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-// Route::get('/auth/google/callback', [GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
 // Auth::routes();
-
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -60,8 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/delete-vote-dpm/{id}', [VoteMainController::class, 'destroy2']);
         Route::post('/simpan-vote-dpm', [VoteMainController::class, 'store_dpm']);
         Route::get('/admin-hasil', [DashboardMainController::class, 'dashboardmaincontroller']);
-        Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
-        Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
+        // Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
         
         
         Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
@@ -74,6 +70,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
         Route::resource('admin', AdminController::class);
     });
+
+
     Route::group(['middleware' => ['CekLevel:user']], function () {
         /*
         Route Khusus untuk role user

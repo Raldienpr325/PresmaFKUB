@@ -36,8 +36,9 @@ class AdminLoginController extends Controller
         //     return redirect('/admin-login')->with('failedlogin', 'Data yang anda Masukkan salah');
         // }
         // return dd($request->all());
-            if (Auth::attempt($request->only('email', 'password'))){}
+            if (Auth::attempt($request->only('email', 'password'))){
                 return redirect('/admin-dashboard');
+            }
     }
 
 }

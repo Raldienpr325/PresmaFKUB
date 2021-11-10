@@ -33,13 +33,10 @@ class VoteMainController extends Controller
     {
         return view('admin.vote.input');
     }
-<<<<<<< HEAD
-=======
     public function create_dpm()
     {
         return view('admin.vote_dpm.input');
     }
->>>>>>> a5af66d496baf4b22bebe17a491ff9e7c4831ce3
     
     public function store(Request $request)
     {
