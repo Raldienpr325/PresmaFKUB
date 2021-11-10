@@ -20,19 +20,28 @@ class VoteController extends Controller
     }
     
     public function votecontroller(){
-        return view('user.vote-presma.main');
+        return view('user.vote-presma.main', [
+            'title' => 'Vote Presma',
+        ]);
     }
     public function votedpmcontroller(){
-        return view('user.vote-dpm.main');
+        return view('user.vote-dpm.main', [
+            'title' => 'Vote DPM',
+        ]);
     }
 
     public function datavotepresma(){
         $datapresma = presma::all();
-        return view('user.vote-presma.main', ['datas' => $datapresma,]);
+        return view('user.vote-presma.main', [
+                'title' => 'Vote',
+                'datas' => $datapresma,
+            ]);
     }
     public function datavotedpm(){
         $datadpm = dpm::all();
-        return view('user.vote-dpm.main', ['datas2' => $datadpm,]);
+        return view('user.vote-dpm.main', [
+                'title' => 'Vote',
+                'datas2' => $datadpm,]);
     }
     public function vote($id){
         $data = voting::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
@@ -40,13 +49,17 @@ class VoteController extends Controller
             ['presmas_id'=>$id,'users_id'=>Auth::user()->id]
             #Jika data belum ada maka add presmas_id dan users_id
         );
-      return view('user.Donevote');
+      return view('user.Donevote', [
+        'title' => 'Done Vote',
+    ]);
     }
     public function vote2($id){
         $data = voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
             ['users_id'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
             ['dpm_id'=>$id,'users_id'=>Auth::user()->id] #Jika data belum ada maka add presmas_id dan users_id
         );
-      return view('user.logout.main');
+      return view('user.logout.main', [
+        'title' => 'Logout Vote',
+    ]);
     }
 }

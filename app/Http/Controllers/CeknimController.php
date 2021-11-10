@@ -16,7 +16,7 @@ class CeknimController extends Controller
         $validatedData = $request->validate([
             'NIM' => 'required',
             'nama' => 'required',
-            'level' => 'required',
+            // 'level' => 'required',
         ]);
         // dd($validatedData['NIM']);
         $validasiNIM = explode("5060",$validatedData['NIM']);

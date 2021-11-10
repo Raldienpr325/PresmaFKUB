@@ -15,21 +15,26 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: "poppins";
+    font-size: 22px;
 }
 .login {
-    margin: 120px auto;
+    margin: 170px auto;
     width: 300px;
 }
 .login-screen {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.904);
     padding: 20px;
+    padding-top: 1px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 5px silver;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.438),
+        0 6px 20px 0 rgba(255, 255, 255, 0.514);
 }
 
 .app-title {
     text-align: center;
     color: #777;
+    font-family: "poppins";
 }
 
 .login-form {
@@ -71,6 +76,8 @@ input:focus {
     display: block;
     width: 250px;
     margin: 0 auto;
+    font-family: "poppins";
+    font-size: 20px;
 }
 
 .btn:hover {

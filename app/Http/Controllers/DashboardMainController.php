@@ -14,6 +14,8 @@ class DashboardMainController extends Controller
     }
     
     public function dashboardmaincontroller(){
-        return view('admin.hasil.main');
+        return view('admin.hasil.main', [
+            'title' => 'Hasil Vote',
+        ]);
     }
 }

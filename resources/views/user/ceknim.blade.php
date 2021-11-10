@@ -39,12 +39,12 @@
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
                 
-                <div class="form-check">
+                {{-- <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="pemilih" id="flexCheckDefault" name="level">
                     <label class="form-check-label" for="flexCheckDefault">
                       Pemilih
                     </label>
-                  </div>
+                  </div> --}}
 
                 <div class="login-form">
 

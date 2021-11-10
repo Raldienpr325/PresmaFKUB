@@ -20,6 +20,7 @@
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
             </ul>
+            <a href="{{ url('login') }}">Vote !!</a>
         </div>
         <div id="button">
             <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>
@@ -57,9 +58,13 @@
     .container {
         color: white;
         margin: 0 auto;
+        width: 600px;
         justify-content: center;
         text-align: center;
         background-color: #e1e1e16b;
+        border-radius: 25px;
+        padding-top: 15px;
+        box-shadow: 0 4px 8px 0 rgba(240, 240, 240, 0.2), 0 6px 20px 0 rgba(240, 240, 240, 0.2);
     }
 
     h1 {

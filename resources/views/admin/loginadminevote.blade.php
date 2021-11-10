@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Admin</title>
     <link rel="stylesheet" href="/css/login.css">
 </head>
 
@@ -49,7 +49,7 @@
                         </span>
                     @enderror
 
-                    <div class="control-group">
+                    {{-- <div class="control-group">
                         <input type="text" class="login-field" placeholder="google_id" id="login-name"
                             name="google_id">
                         <label class="login-field-icon fui-user" for="login-name"></label>
@@ -58,9 +58,9 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                    @enderror --}}
 
-                    <div class="control-group">
+                    {{-- <div class="control-group">
                         <input type="text" class="login-field" placeholder="level" id="login-name"
                             name="level">
                         <label class="login-field-icon fui-user" for="login-name"></label>
@@ -69,9 +69,9 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                    @enderror --}}
 
-                    <div class="control-group">
+                    {{-- <div class="control-group">
                         <input type="text" class="login-field" placeholder="locale" id="login-name"
                             name="locale">
                         <label class="login-field-icon fui-user" for="login-name"></label>
@@ -80,7 +80,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                    @enderror --}}
 
                     <div class="control-group">
                         <input type="password" class="login-field" value="" placeholder="password" id="login-pass"
@@ -97,10 +97,10 @@
                     <button type="submit" class="btn btn-primary">
                         {{ __('Login') }}
                     </button>
-                    <br>
+                    {{-- <br>
                     @if (Route::has('register'))
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
+                    @endif --}}
                 </div>
             </form>
         </div>

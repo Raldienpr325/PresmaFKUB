@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
+    {{-- <title>AdminLTE 3 | Dashboard</title> --}}
+    <title>AdminLTE 3 | {{ $title }} </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -36,7 +37,8 @@
 
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        {{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light"> --}}
+        <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #071828">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -73,7 +75,8 @@
         </nav>
         <!-- /.navbar -->
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar elevation-4" style="background-color: #071828">
+        {{-- <aside class="main-sidebar sidebar-dark-primary elevation-4"> --}}
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -95,7 +98,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('admin-hasil') }}" class="nav-link">
+                            <a href="{{ url('admin-hasil') }}" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Hasil Vote

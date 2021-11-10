@@ -17,7 +17,7 @@ class CreateCeknimsTable extends Migration
             $table->id();
             $table->string('NIM',15);//->unique();
             $table->string('nama');//->unique();
-            $table->string('level');
+            // $table->string('level');
             $table->timestamps();
         });
     }

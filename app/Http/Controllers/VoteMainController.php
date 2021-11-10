@@ -22,20 +22,28 @@ class VoteMainController extends Controller
     public function votemaincontroller()
     {
         $dtvote = presma::paginate(15);
-        return view('admin.vote.main', compact('dtvote'));
+        return view('admin.vote.main', [
+            'title' => 'Vote PRESMA',
+        ], compact('dtvote'));
     }
     public function votedpmcontroller()
     {
         $dpmvote = dpm::paginate(15);
-        return view('admin.vote_dpm.main', compact('dpmvote'));
+        return view('admin.vote_dpm.main', [
+            'title' => 'Vote DPM',
+        ], compact('dpmvote'));
     }
     public function create()
     {
-        return view('admin.vote.input');
+        return view('admin.vote.input', [
+            'title' => 'Vote Input',
+        ]);
     }
     public function create_dpm()
     {
-        return view('admin.vote_dpm.input');
+        return view('admin.vote_dpm.input', [
+            'title' => 'Vote DPM',
+        ]);
     }
     
     public function store(Request $request)
@@ -79,7 +87,9 @@ class VoteMainController extends Controller
     public function edit2($id2)
     {
         $dpm=dpm::findorfail($id2);
-        return view('admin.vote_dpm.edit', compact('dpm'));
+        return view('admin.vote_dpm.edit', [
+            'title' => 'Edit Vote DPM',
+        ], compact('dpm'));
     }
     public function update(Request $request, $id)
     {
