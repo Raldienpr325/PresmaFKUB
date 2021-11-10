@@ -15,37 +15,34 @@
             <div class="app-title">
                 <h1>Register</h1>
             </div>
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
+
+                @if(session()->has('registerfailed'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('registerfailed') }}
+                    <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+                </div>
+                @endif
 
                 <div class="login-form">
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="name" id="login-name"
-                            name="name" autofocus>
+                        <input type="text" class="login-field" value="" placeholder="username" id="login-name"
+                            name="username" autofocus>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
-                    @error('name')
+                    @error('username')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
 
-                    <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="Email Address" id="login-name"
-                            name="email">
-                        <label class="login-field-icon fui-user" for="login-name"></label>
-                    </div>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-
-                    <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="level" id="login-name"
-                            name="level">
-                        <label class="login-field-icon fui-user" for="login-name"></label>
-                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="admin" id="flexCheckDefault" name="level">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Admin
+                        </label>
+                      </div>
                     @error('level')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -63,16 +60,6 @@
                         </span>
                     @enderror
 
-                    <div class="control-group">
-                        <input type="password" class="login-field" value="" placeholder="Confirm Password" id="login-pass"
-                            name="password_confirmation">
-                        <label class="login-field-icon fui-lock" for="login-pass"></label>
-                    </div>
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                     <button type="submit" class="btn btn-primary">
                         {{ __('Register') }}
                     </button>

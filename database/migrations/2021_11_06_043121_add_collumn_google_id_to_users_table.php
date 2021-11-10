@@ -13,9 +13,10 @@ class AddCollumnGoogleIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('google_id')->after('email')->nullable();
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->string('google_id')->after('email')->nullable();
+        // });
+        //REVISI V2
     }
 
     /**
@@ -25,8 +26,9 @@ class AddCollumnGoogleIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropCollumn('google_id');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->dropCollumn('google_id');
+        // });
+        //REVISI V2
     }
 }

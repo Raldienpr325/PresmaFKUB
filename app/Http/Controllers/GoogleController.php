@@ -36,6 +36,7 @@ class GoogleController extends Controller
                     'google_id' => $user->id,
                     'locale' => $user->user['locale'],
                     'password' => bcrypt('12345678'),
+                    'level' => 'user',
                 ]);
                 // dd($user);
                 Auth::login($newUser);

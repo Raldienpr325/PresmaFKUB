@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CekLevel
 {
@@ -14,11 +15,21 @@ class CekLevel
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$levels)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-       if (in_array($request->user()->level,$levels)){
-           return $next($request);
-       }
-       return redirect('/');
+        // if (!Auth::check()) {
+        //     return redirect('login');
+        // }
+        // $user = Auth::user();
+
+        // if($user->level == $roles)
+        //     return $next($request);
+
+
+        // return redirect('login')->with('error',"kamu gak punya akses");
+        if ( in_array($request->user()->level,$roles)){
+            return $next($request);
+        }
+        return redirect('/admin-login');
     }
 }

@@ -15,12 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ceknim_id')->nullable();
+            // $table->foreignId('ceknim_id')->nullable();//revisi V2
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('google_id')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->string('level')->nullable();
+            $table->string('level');//revisi V2
             $table->string('locale');
             $table->rememberToken();
             $table->timestamps();

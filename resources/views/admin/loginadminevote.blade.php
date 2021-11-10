@@ -19,13 +19,64 @@
             <form method="POST" action="{{ route('loginadmin') }}">
                 @csrf
 
+                @if(session()->has('failedlogin'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('failedlogin') }}
+                    <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+                </div>
+                @endif
+
                 <div class="login-form">
                     <div class="control-group">
-                        <input type="text" class="login-field" placeholder="username" id="login-name"
-                            name="username">
+                        <input type="text" class="login-field" placeholder="name" id="login-name"
+                            name="name">
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
-                    @error('username')
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="control-group">
+                        <input type="text" class="login-field" placeholder="email" id="login-name"
+                            name="email">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="control-group">
+                        <input type="text" class="login-field" placeholder="google_id" id="login-name"
+                            name="google_id">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    @error('google_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="control-group">
+                        <input type="text" class="login-field" placeholder="level" id="login-name"
+                            name="level">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    @error('level')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="control-group">
+                        <input type="text" class="login-field" placeholder="locale" id="login-name"
+                            name="locale">
+                        <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+                    @error('locale')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -41,6 +92,8 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+
+
                     <button type="submit" class="btn btn-primary">
                         {{ __('Login') }}
                     </button>

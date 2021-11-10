@@ -57,6 +57,7 @@
     .container {
         color: white;
         margin: 0 auto;
+        justify-content: center;
         text-align: center;
         background-color: #e1e1e16b;
     }
