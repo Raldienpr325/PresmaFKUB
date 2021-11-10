@@ -34,19 +34,26 @@ Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')
 
 
 //khusus user
-Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
+Route::get('/vote-presma', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');
+Route::get('/vote-dpm', [VoteController::class, 'datavotedpm'])->name('vote2')->middleware('auth');
 Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma'])->name('home')->middleware('auth');
 Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote'])->name('done')->middleware('auth');
-
+Route::get('/user.done-vote2/{id}', [App\Http\Controllers\VoteController::class, 'vote2'])->name('done')->middleware('auth');
 
 //khusu admin
 Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
+Route::get('/admin-vote-dpm', [VoteMainController::class, 'votedpmcontroller']);
 Route::get('/create-vote', [VoteMainController::class, 'create']);
+Route::get('/create-vote-dpm', [VoteMainController::class, 'create_dpm']);
 Route::get('/edit-vote/{id}', [VoteMainController::class, 'edit']);
+Route::get('/edit-vote-dpm/{id}', [VoteMainController::class, 'edit2']);
 Route::post('/update-vote/{id}', [VoteMainController::class, 'update']);
+Route::post('/update-vote-dpm/{id}', [VoteMainController::class, 'update2']);
 Route::get('/delete-vote/{id}', [VoteMainController::class, 'destroy']);
+Route::get('/delete-vote-dpm/{id}', [VoteMainController::class, 'destroy2']);
 Route::get('/export-vote', [VoteMainController::class, 'presmaexport']);
 Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
+Route::post('/simpan-vote-dpm', [VoteMainController::class, 'store_dpm']);
+Route::get('/admin-hasil', [DashboardMainController::class, 'dashboardmaincontroller']);
 Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');

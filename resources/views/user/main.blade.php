@@ -43,7 +43,6 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-
             </ul>
 
 
@@ -95,26 +94,26 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('admin-hasil') }}" class="nav-link">
+                            <a href="{{ url('vote-presma') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Hasil Vote
+                                    Vote Presma
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('admin-vote') }}" class="nav-link">
+                            <a href="{{ url('vote-dpm') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Input Presma
+                                    Vote Dpm
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('admin-vote-dpm') }}" class="nav-link">
+                            <a href="{{ url('#') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>                               
                                 <p>
-                                    Input DPM
+                                    Logout
                                 </p>
                             </a>
                         </li>
@@ -128,8 +127,10 @@
         <div class="content-wrapper">
 
             <section class="content">
-                @yield('vote')
-                @yield('vote-dpm')
+            @yield('uvote-presma')
+            @yield('uvote-dpm') 
+            @yield('donevote')
+            @yield('logout')
             </section>
         </div>
 
