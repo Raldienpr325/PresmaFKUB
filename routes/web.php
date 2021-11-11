@@ -56,7 +56,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/update-vote-dpm/{id}', [VoteMainController::class, 'update2']);
         Route::get('/delete-vote-dpm/{id}', [VoteMainController::class, 'destroy2']);
         Route::post('/simpan-vote-dpm', [VoteMainController::class, 'store_dpm']);
-        Route::get('/admin-hasil', [DashboardMainController::class, 'dashboardmaincontroller']);
+        Route::get('/admin-proses-presma', [VoteMainController::class, 'voting']);
+        Route::get('/admin-proses-dpm', [VoteMainController::class, 'voting2']);
+        Route::get('/admin-hasil-presma', [VoteMainController::class, 'hasilvoting']);
+        Route::get('/admin-hasil-dpm', [VoteMainController::class, 'hasilvoting2']);
         // Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
         
         
@@ -65,7 +68,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/edit-vote/{id}', [VoteMainController::class, 'edit']);
         Route::post('/update-vote/{id}', [VoteMainController::class, 'update']);
         Route::get('/delete-vote/{id}', [VoteMainController::class, 'destroy']);
-        Route::get('/export-vote', [VoteMainController::class, 'presmaexport']);
+        Route::get('/export-proses-presma', [VoteMainController::class, 'presmaexport']);
+        Route::get('/export-proses-dpm', [VoteMainController::class, 'dpmexport']);
+        Route::get('/hasil-vote', [VoteMainController::class, 'grafik']);
         Route::post('/simpan-vote', [VoteMainController::class, 'store']);
         Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
         Route::resource('admin', AdminController::class);

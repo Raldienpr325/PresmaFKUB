@@ -45,8 +45,8 @@ class VoteController extends Controller
     }
     public function vote($id){
         $data = voting::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
-            ['users_id'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
-            ['presmas_id'=>$id,'users_id'=>Auth::user()->id]
+            ['usersid'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
+            ['presmasid'=>$id,'usersid'=>Auth::user()->id]
             #Jika data belum ada maka add presmas_id dan users_id
         );
       return view('user.Donevote', [
@@ -55,8 +55,8 @@ class VoteController extends Controller
     }
     public function vote2($id){
         $data = voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
-            ['users_id'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
-            ['dpm_id'=>$id,'users_id'=>Auth::user()->id] #Jika data belum ada maka add presmas_id dan users_id
+            ['usersid'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
+            ['dpmsid'=>$id,'usersid'=>Auth::user()->id] #Jika data belum ada maka add presmas_id dan users_id
         );
       return view('user.logout.main', [
         'title' => 'Logout Vote',

@@ -13,14 +13,15 @@ class CreateVoting2Table extends Migration
      */
     public function up()
     {
-        Schema::create('voting2', function (Blueprint $table) {
+        Schema::create('voting2s', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('users_id')->unsigned();
-            $table->bigInteger('dpm_id')->unsigned();
+            $table->bigInteger('usersid')->unsigned();
+            $table->bigInteger('dpmsid')->unsigned();
             $table->timestamps();
             
-            $table->foreign('dpm_id')->references('id')->on('dpm')->onDelete('restrict');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('dpmsid')->references('id')->on('dpms')->onDelete('restrict');
+            
+            $table->foreign('usersid')->references('id')->on('users')->onDelete('cascade');
             $table->engine='InnoDB';
         });
     }

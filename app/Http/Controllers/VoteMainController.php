@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Exports\DpmExport;
 use App\Exports\PresmaExport;
+use App\Exports\VotingExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\presma;
 use App\Models\dpm;
+use App\Models\voting;
+use App\Models\voting2;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -26,6 +31,7 @@ class VoteMainController extends Controller
             'title' => 'Vote PRESMA',
         ], compact('dtvote'));
     }
+    
     public function votedpmcontroller()
     {
         $dpmvote = dpm::paginate(15);
@@ -33,12 +39,46 @@ class VoteMainController extends Controller
             'title' => 'Vote DPM',
         ], compact('dpmvote'));
     }
+    
+    public function voting()
+    {
+        $voting = voting::paginate(15);
+        return view('admin.proses-presma.main', [
+            'title' => 'Proses Vote Presma',
+        ], compact('voting'));
+    }
+    
+    public function hasilvoting()
+    {
+        $hvoting = voting::paginate(100);
+        return view('admin.hasil-presma.main', [
+            'title' => 'hasil Vote Presma',
+        ], compact('hvoting'));
+    }
+    
+    public function hasilvoting2()
+    {
+        $hvoting2 = voting2::paginate(100);
+        return view('admin.hasil-dpm.main', [
+            'title' => 'hasil Vote Dpm',
+        ], compact('hvoting2'));
+    }
+    
+    public function voting2()
+    {
+        $voting2 = voting2::paginate(15);
+        return view('admin.proses-dpm.main', [
+            'title' => 'Proses Vote Presma',
+        ], compact('voting2'));
+    }
+    
     public function create()
     {
         return view('admin.vote.input', [
             'title' => 'Vote Input',
         ]);
     }
+    
     public function create_dpm()
     {
         return view('admin.vote_dpm.input', [
@@ -91,6 +131,7 @@ class VoteMainController extends Controller
             'title' => 'Edit Vote DPM',
         ], compact('dpm'));
     }
+    
     public function update(Request $request, $id)
     {
         $presma=presma::findorfail($id);
@@ -123,7 +164,13 @@ class VoteMainController extends Controller
     
     public function presmaexport()
     {
-        return Excel::download(new PresmaExport, 'presma.xlsx');
+        return Excel::download(new VotingExport, 'voting.xlsx');
     }
+    public function dpmexport()
+    {
+        return Excel::download(new DpmExport, 'dpm.xlsx');
+    }
+    
+ 
     
  }

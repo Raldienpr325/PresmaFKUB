@@ -13,7 +13,7 @@ class CreateDpmTable extends Migration
      */
     public function up()
     {
-        Schema::create('dpm', function (Blueprint $table) {
+        Schema::create('dpms', function (Blueprint $table) {
             $table->id();
             $table->string('fotodpm',100);
             $table->string('angkatandpm',4);

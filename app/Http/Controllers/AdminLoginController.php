@@ -37,7 +37,7 @@ class AdminLoginController extends Controller
         // }
         // return dd($request->all());
             if (Auth::attempt($request->only('email', 'password'))){
-                return redirect('/admin-dashboard');
+                return redirect('/admin-vote');
             }
     }
 

@@ -13,14 +13,13 @@ class CreateVoting extends Migration
      */
     public function up()
     {
-        Schema::create('voting', function (Blueprint $table) {
+        Schema::create('votings', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('users_id')->unsigned();
-            $table->bigInteger('presmas_id')->unsigned();
+            $table->bigInteger('usersid')->unsigned();
+            $table->bigInteger('presmasid')->unsigned();
             $table->timestamps();
-            
-            $table->foreign('presmas_id')->references('id')->on('presmas')->onDelete('restrict');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('presmasid')->references('id')->on('presmas')->onDelete('restrict');
+            $table->foreign('usersid')->references('id')->on('users')->onDelete('cascade');
             $table->engine='InnoDB';
         });
     }
@@ -32,8 +31,6 @@ class CreateVoting extends Migration
      */
     public function down()
     {
-        Schema::table('voting', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('voting');
     }
 }

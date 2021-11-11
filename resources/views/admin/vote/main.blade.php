@@ -4,7 +4,7 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <a href="{{ url('create-vote') }}" class="btn btn-success">add data</a>
-                <a href="{{ url('export-vote') }}" class="btn btn-warning"> Export</a>
+                {{-- <a href="{{ url('export-vote') }}" class="btn btn-warning"> Export</a> --}}
             </div>
         </div>
         <div class="card-body">

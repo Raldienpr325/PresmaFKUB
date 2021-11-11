@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class voting extends Model
 {
-    protected $table = "voting";
+    protected $table = "votings";
     protected $primaryKey = "id";
     protected $fillable = [
-       'users_id','presmas_id'];
+       'usersid','presmasid'];
+    
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
     
 }

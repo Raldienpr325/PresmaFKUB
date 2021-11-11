@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class voting2 extends Model
 {
-    protected $table = "voting2";
+    protected $table = "voting2s";
     protected $primaryKey = "id";
     protected $fillable = [
-       'users_id','dpm_id'];
+       'usersid','dpmsid'];
 }

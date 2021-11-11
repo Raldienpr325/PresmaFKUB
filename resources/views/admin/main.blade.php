@@ -98,10 +98,34 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('admin-hasil') }}" class="nav-link ">
+                            <a href="{{ url('admin-proses-presma') }}" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Hasil Vote
+                                    Proses Vote Presma
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="{{ url('admin-proses-dpm') }}" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Proses Vote DPM 
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="{{ url('admin-hasil-presma') }}" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Hasil Vote Presma 
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="{{ url('admin-hasil-dpm') }}" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Hasil Vote DPM 
                                 </p>
                             </a>
                         </li>
@@ -129,16 +153,25 @@
         </aside>
 
         <div class="content-wrapper">
-
             <section class="content">
                 @yield('vote')
                 @yield('vote-dpm')
+                @yield('proses-vote-presma')
+                @yield('proses-vote-dpm')
+                @yield('hasil-presma')
+                @yield('hasil-dpm')
             </section>
         </div>
 
     </div>
 
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <!-- jQuery -->
+    
     <script src="{{ asset('adminLTE/plugins') }}/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('adminLTE/plugins') }}/jquery-ui/jquery-ui.min.js"></script>
@@ -172,6 +205,47 @@
     <script src="{{ asset('adminLTE/dist') }}/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminLTE/dist') }}/js/demo.js"></script>
+    
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Hasil voting Presma'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                accessibility: {
+                    point: {
+                        valueSuffix: '%'
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Brands',
+                    colorByPoint: true,
+                    data: { !! json_encode($hasil) !! }
+                }]
+            });
+                    })
+    </script>
+
 
 </body>
 
