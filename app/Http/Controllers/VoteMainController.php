@@ -56,10 +56,11 @@ class VoteMainController extends Controller
         $hasil = [];
         
        foreach ($presma as $key => $ps){
-           $id_presma = $ps->id;    
+           $id_presma = $ps->id;  
+           $nama_presma = $ps->nama;  
            $total = voting::where('presmasid',$id_presma)->count();
            
-           $a['name'] = $id_presma;
+           $a['name'] = $nama_presma;
            $a['y'] = $total;
            array_push($hasil,$a);
            
@@ -76,10 +77,11 @@ class VoteMainController extends Controller
         
         foreach ($dpm as $key => $d){
             $id_dpm = $d->id;    
+            $nama_dpm = $d->namadpm;
             $total = voting2::where('dpmsid',$id_dpm)->count();
-            $a['name'] = $id_dpm;
-            $a['y'] = $total;
-            array_push($hasil2,$a);
+            $a2['name'] = $nama_dpm;
+            $a2['y'] = $total;
+            array_push($hasil2,$a2);
             
         }
         return view('admin.hasil-dpm.main',compact('title','hasil2'));

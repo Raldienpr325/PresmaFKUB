@@ -72,7 +72,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/export-proses-dpm', [VoteMainController::class, 'dpmexport']);
         Route::get('/hasil-vote', [VoteMainController::class, 'grafik']);
         Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-        Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
         Route::resource('admin', AdminController::class);
     });
 

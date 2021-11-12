@@ -99,7 +99,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-proses-presma') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-recycle"></i>
                                 <p>
                                     Proses Vote Presma
                                 </p>
@@ -107,7 +107,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-proses-dpm') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-recycle"></i>
                                 <p>
                                     Proses Vote DPM 
                                 </p>
@@ -115,7 +115,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-hasil-presma') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-chart-area"></i>
                                 <p>
                                     Hasil Vote Presma 
                                 </p>
@@ -123,7 +123,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-hasil-dpm') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-chart-area"></i>
                                 <p>
                                     Hasil Vote DPM 
                                 </p>
@@ -131,7 +131,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-vote') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-pen"></i>
                                 <p>
                                     Input Presma
                                 </p>
@@ -139,7 +139,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-vote-dpm') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>                               
+                                <i class="nav-icon fas fa-pen"></i>                               
                                 <p>
                                     Input DPM
                                 </p>
