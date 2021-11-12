@@ -16,11 +16,11 @@ class CreateVoting2Table extends Migration
         Schema::create('voting2s', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('usersid')->unsigned();
+            $table->string('name');
             $table->bigInteger('dpmsid')->unsigned();
             $table->timestamps();
             
             $table->foreign('dpmsid')->references('id')->on('dpms')->onDelete('restrict');
-            
             $table->foreign('usersid')->references('id')->on('users')->onDelete('cascade');
             $table->engine='InnoDB';
         });

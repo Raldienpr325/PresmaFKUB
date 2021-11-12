@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\dpm;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Chart\Title;
 use App\Models\voting;
 use App\Models\presma;
+use App\Models\voting2;
 
 class DashboardMainController extends Controller
 {
@@ -18,23 +20,22 @@ class DashboardMainController extends Controller
     
     public function dashboardmaincontroller(){
         
-       $title = 'hasil voting presma';
-       $presma = presma::get();
+       
+    }
+    public function dashboardmaincontroller2(){
+       $title = 'hasil voting Dpm';
+       $dpm = dpm::get();
        $hasil = [];
        
-       foreach ($presma as $key => $ps){
-           $id_presma = $ps->id;    
-           $no_urut = $ps->no_urut;
-           $total = voting::where('presmasid',$id_presma)->count();
+       foreach ($dpm as $key => $d){
+           $id_dpm = $d->id;    
+           $no_urut = $d->no_urut;
+           $total = voting2::where('dpmsid',$id_dpm)->count();
            $a['name'] = $no_urut;
            $a['y'] = $total;
            array_push($hasil,$a);
            
        }
-       return view('admin.hasil-presma.main',compact('title','hasil'));
-    }
-    public function dashboardmaincontroller2(){
-        $title = 'hasil voting DPM';
-        return view('admin.hasil-dpm.main',compact('title'));
+       return view('admin.hasil-dpm.main',compact('title','hasil'));
     }
 }

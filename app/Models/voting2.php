@@ -10,5 +10,5 @@ class voting2 extends Model
     protected $table = "voting2s";
     protected $primaryKey = "id";
     protected $fillable = [
-       'usersid','dpmsid'];
+       'usersid','name','dpmsid'];
 }

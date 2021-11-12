@@ -11,18 +11,20 @@
             <tr>
                 <th>No</th>
                 <th>Users_id</th>
+                <th>Nama</th>
                 <th>Presmas_id</th>
             </tr>
             @foreach ($voting as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->usersid }} </td>
+                    <td>{{ $item->name }}</td>
                     <td>{{ $item->presmasid }}</td>
                 </tr>
             @endforeach
         </table>
     </div>
-    {{-- <div class="card-footer">{{ $dtvote->links() }}</div> --}}
+    <div class="card-footer">{{ $voting->links() }}</div>
 </div>
 
 

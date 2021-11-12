@@ -88,8 +88,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/vote-presma', [VoteController::class, 'datavotepresma'])->name('vote');//->middleware('auth');
         Route::get('/vote-dpm', [VoteController::class, 'datavotedpm'])->name('vote2');//->middleware('auth');
         Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
-        Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
-        Route::get('/user.done-vote2/{id}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
+        Route::get('/user.done-vote/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
+        Route::get('/user.done-vote2/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
     });
 });
 
