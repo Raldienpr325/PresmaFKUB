@@ -22,6 +22,13 @@
             </div>
             @endif
 
+            @if(session()->has('failedrequest'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('failedrequest') }}
+                <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+            </div>
+            @endif
+
 
             <div class="app-title">
                 <h4>Login Dengan Email UB!</h4>

@@ -30,6 +30,6 @@ class CekLevel
         if ( in_array($request->user()->level,$roles)){
             return $next($request);
         }
-        return redirect('/admin-login');
+        return redirect('/halaman-ceknim')->with('failedrequest', 'Maaf Kamu tidak punya akses !!');
     }
 }
