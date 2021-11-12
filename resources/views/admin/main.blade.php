@@ -99,7 +99,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-proses-presma') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-recycle"></i>
                                 <p>
                                     Proses Vote Presma
                                 </p>
@@ -107,7 +107,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-proses-dpm') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-recycle"></i>
                                 <p>
                                     Proses Vote DPM 
                                 </p>
@@ -115,7 +115,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-hasil-presma') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-chart-area"></i>
                                 <p>
                                     Hasil Vote Presma 
                                 </p>
@@ -123,7 +123,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-hasil-dpm') }}" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-chart-area"></i>
                                 <p>
                                     Hasil Vote DPM 
                                 </p>
@@ -131,7 +131,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-vote') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-pen"></i>
                                 <p>
                                     Input Presma
                                 </p>
@@ -139,7 +139,7 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('admin-vote-dpm') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>                               
+                                <i class="nav-icon fas fa-pen"></i>                               
                                 <p>
                                     Input DPM
                                 </p>
@@ -165,11 +165,7 @@
 
     </div>
 
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  
     <!-- jQuery -->
     
     <script src="{{ asset('adminLTE/plugins') }}/jquery/jquery.min.js"></script>
@@ -183,6 +179,10 @@
     <script src="{{ asset('adminLTE/plugins') }}/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
     <script src="{{ asset('adminLTE/plugins') }}/chart.js/Chart.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <!-- Sparkline -->
     <script src="{{ asset('adminLTE/plugins') }}/sparklines/sparkline.js"></script>
     <!-- JQVMap -->
@@ -205,47 +205,8 @@
     <script src="{{ asset('adminLTE/dist') }}/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminLTE/dist') }}/js/demo.js"></script>
-    
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            Highcharts.chart('container', {
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false,
-                    type: 'pie'
-                },
-                title: {
-                    text: 'Hasil voting Presma'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                accessibility: {
-                    point: {
-                        valueSuffix: '%'
-                    }
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Brands',
-                    colorByPoint: true,
-                    data: { !! json_encode($hasil) !! }
-                }]
-            });
-                    })
-    </script>
-
+    @yield('hasil')
+    @yield('hasil2')
 
 </body>
 

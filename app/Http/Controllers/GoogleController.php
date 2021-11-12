@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 class GoogleController extends Controller
@@ -18,15 +19,21 @@ class GoogleController extends Controller
         try{
             $user = Socialite::driver('google')->user();
             // dd($user);
-            if( $user->user['locale'] == 'id'){
+            if( $user->user['locale'] == 'en'){
                 return redirect('login')->with('failedlogin', 'Login Failed! Gunakan Email UB');
                 exit;
             }
-            else if( $user->user['locale'] == 'en' ){
+            else if( $user->user['locale'] == 'id' ){
             $finduser = User::where('google_id',$user->getId())->first();
             if($finduser){
+                $leveluser = DB::table('users')->where('google_id', $user->getId())->value('level');
+                if($leveluser == 'superuser'){
+                    return redirect('login')->with('failedrelogin', 'Anda sudah pernah memilih, Terima Kasih.');
+                }
+                else{
                 Auth::login($finduser);
                 return redirect()->intended('/');
+                }
             }
             else{
                 // dd($user);

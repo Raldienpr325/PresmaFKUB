@@ -16,6 +16,7 @@ class CreateVoting extends Migration
         Schema::create('votings', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('usersid')->unsigned();
+            $table->string('name');
             $table->bigInteger('presmasid')->unsigned();
             $table->timestamps();
             $table->foreign('presmasid')->references('id')->on('presmas')->onDelete('restrict');

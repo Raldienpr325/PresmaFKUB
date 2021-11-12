@@ -12,7 +12,7 @@
                     @enderror" placeholder="foto Presma" required autofocus value="{{ old('foto') }}">
                 </div>
                 <div class="form-group">
-                    <input type="text" id="nama" name="nama"  class="form-control @error('nama') is-invalid 
+                    <input type="text" id="na ma" name="nama"  class="form-control @error('nama') is-invalid 
                     @enderror" placeholder="Nama Presma" required autofocus value="{{ old('nama') }}">
                 </div>
                 <div class="form-group">

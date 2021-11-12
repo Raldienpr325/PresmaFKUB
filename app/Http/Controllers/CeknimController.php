@@ -25,7 +25,7 @@ class CeknimController extends Controller
         $validasiNIM = explode("5060",$validatedData['NIM']);
         if( strlen($validasiNIM['0']) == "2" && strlen($validasiNIM['1']) == "9"){
             Ceknim::create($validatedData);
-            $datauser = User::find(Auth::user()->id);
+            // $datauser = User::find(Auth::user()->id);
             // return dd($datauser);
             // $kirim_NIM = $validatedData['NIM'];
             // $datapresma = presma::all();

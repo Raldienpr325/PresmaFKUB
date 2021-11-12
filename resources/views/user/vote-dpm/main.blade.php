@@ -1,10 +1,7 @@
 @extends('user.main')
 @section('uvote-dpm')
-    
-@endsection
 
 @foreach ($datas2 as $data)  
-   
 <div class="row p-md-4">
 <div class="col-md-4">
     <div class="card card-widget widget-user">
@@ -23,8 +20,8 @@
             </div>
             <div class="col-sm-4 border-right">
               <div class="description-block">
-                <a href="{{ url('user.done-vote2/'.$data->id) }}">
-                  <button><span class="btn btn-danger" style="margin: 20px">Vote</span></button>  </a>
+                <a href="{{ url('user.done-vote2',['usersid'=>$data->id,'name'=>Auth::user()->name]) }}">
+                  <button class="btn btn-danger" style="margin: 20px">Vote</button>  </a>
               </div>
             </div>
             <div class="col-sm-4">
@@ -40,3 +37,5 @@
 
 
 @endforeach
+@endsection
+

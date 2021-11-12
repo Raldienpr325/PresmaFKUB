@@ -72,7 +72,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/export-proses-dpm', [VoteMainController::class, 'dpmexport']);
         Route::get('/hasil-vote', [VoteMainController::class, 'grafik']);
         Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-        Route::get('/admin-dashboard', [DashboardMainController::class, 'dashboardmaincontroller']);
         Route::resource('admin', AdminController::class);
     });
     
@@ -81,6 +80,8 @@ Route::group(['middleware' => ['auth']], function () {
         /*
         Route Khusus untuk role user
     	*/
+        Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim');//->middleware('auth');
+        Route::get('/halaman-ceknim', [CeknimController::class, 'index']);//->middleware('auth');
         Route::get('/home', [VoteController::class, 'datavotepresma'])->name('home');//->middleware('auth');
         Route::resource('editor', AdminController::class);
         // Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
@@ -90,13 +91,13 @@ Route::group(['middleware' => ['auth']], function () {
         /*
         Route Khusus untuk role superuser
         */
-        Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim');//->middleware('auth');
-        Route::get('/halaman-ceknim', [CeknimController::class, 'index']);//->middleware('auth');
         Route::get('/vote-presma', [VoteController::class, 'datavotepresma'])->name('vote');//->middleware('auth');
         Route::get('/vote-dpm', [VoteController::class, 'datavotedpm'])->name('vote2');//->middleware('auth');
-        Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
-        Route::get('/user.done-vote2/{id}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
-        
+        // Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
+        // Route::get('/user.done-vote2/{id}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
+        Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
+        Route::get('/user.done-vote/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
+        Route::get('/user.done-vote2/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
     });
 });
 

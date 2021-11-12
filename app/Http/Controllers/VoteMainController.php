@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exports\DpmExport;
-use App\Exports\PresmaExport;
 use App\Exports\VotingExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
@@ -11,7 +10,6 @@ use App\Models\presma;
 use App\Models\dpm;
 use App\Models\voting;
 use App\Models\voting2;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 
@@ -42,26 +40,51 @@ class VoteMainController extends Controller
     
     public function voting()
     {
-        $voting = voting::paginate(15);
+        $voting = voting::paginate(4000);
         return view('admin.proses-presma.main', [
             'title' => 'Proses Vote Presma',
         ], compact('voting'));
     }
     
+
+    #CHART PRESMA
     public function hasilvoting()
     {
         $hvoting = voting::paginate(100);
-        return view('admin.hasil-presma.main', [
-            'title' => 'hasil Vote Presma',
-        ], compact('hvoting'));
+        $title = 'hasil voting presma';
+        $presma = presma::get();
+        $hasil = [];
+        
+       foreach ($presma as $key => $ps){
+           $id_presma = $ps->id;  
+           $nama_presma = $ps->nama;  
+           $total = voting::where('presmasid',$id_presma)->count();
+           
+           $a['name'] = $nama_presma;
+           $a['y'] = $total;
+           array_push($hasil,$a);
+           
+       }
+       return view('admin.hasil-presma.main',compact('title','hasil'));
     }
-    
+    #CHART DPM
     public function hasilvoting2()
     {
-        $hvoting2 = voting2::paginate(100);
-        return view('admin.hasil-dpm.main', [
-            'title' => 'hasil Vote Dpm',
-        ], compact('hvoting2'));
+        $hvoting2 = voting2::paginate(4000);
+        $title = 'hasil voting Dpm';
+        $dpm = dpm::get();
+        $hasil2 = [];
+        
+        foreach ($dpm as $key => $d){
+            $id_dpm = $d->id;    
+            $nama_dpm = $d->namadpm;
+            $total = voting2::where('dpmsid',$id_dpm)->count();
+            $a2['name'] = $nama_dpm;
+            $a2['y'] = $total;
+            array_push($hasil2,$a2);
+            
+        }
+        return view('admin.hasil-dpm.main',compact('title','hasil2'));
     }
     
     public function voting2()
@@ -170,7 +193,5 @@ class VoteMainController extends Controller
     {
         return Excel::download(new DpmExport, 'dpm.xlsx');
     }
-    
- 
-    
+
  }
