@@ -49,6 +49,8 @@ class GoogleController extends Controller
                 Auth::login($newUser);
                 return redirect()->intended('/');
             }
+        } else {
+            return redirect('/login');
         }
         } catch (\Throwable $th) {
 

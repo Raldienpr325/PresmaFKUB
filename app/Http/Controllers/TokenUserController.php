@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\TokenUser;
 use App\Models\User;
+use App\Models\Ceknim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class TokenUserController extends Controller
 {
@@ -52,6 +52,10 @@ class TokenUserController extends Controller
             'level' => 'superuser',
         ]);
         Auth::login($newUser);
+        Ceknim::create([
+            'nama' => $request->nama,
+            'NIM' => $request->NIP,
+        ]);
         return redirect('/vote-presma');
     }
 

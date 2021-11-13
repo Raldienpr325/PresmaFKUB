@@ -23,7 +23,7 @@
             <ul>
                 <li><a href="{{ url('login') }}">Vote !!</a></li>
                 <li><a href="{{ url('halaman-logintoken') }}">Gunakan Token</a></li>
-                <li><a href="{{ url('halaman-last-session') }}">Last Session</a></li>
+                <li><a href="{{ url('daftar-memilih') }}">Daftar Diri</a></li>
             </ul>
         </div>
         <div id="button">
