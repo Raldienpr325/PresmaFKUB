@@ -20,9 +20,11 @@
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
             </ul>
-            <a href="{{ url('login') }}">Vote !!</a>
-            <p>Atau</p>
-            <a href="{{ url('halaman-logintoken') }}">Gunakan Token</a>
+            <ul>
+                <li><a href="{{ url('login') }}">Vote !!</a></li>
+                <li><a href="{{ url('halaman-logintoken') }}">Gunakan Token</a></li>
+                <li><a href="{{ url('halaman-last-session') }}">Last Session</a></li>
+            </ul>
         </div>
         <div id="button">
             <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>

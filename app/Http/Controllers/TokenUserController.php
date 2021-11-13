@@ -54,6 +54,21 @@ class TokenUserController extends Controller
         Auth::login($newUser);
         return redirect('/vote-presma');
     }
+
+    public function halamanusertambahan(){
+        return view('user.usertambahan');
+    }
+
+    public function datausertambahan(Request $request){
+        $name = $request['name'];
+        $NIM = $request['NIM'];
+        $prodi = $request['prodi'];
+        $email = $request['email'];
+        $pesan = $request['pesan'];
+        $nomor_tempat_kirim = $request['nomor_wa'];
+        return redirect("https://api.whatsapp.com/send?phone=$nomor_tempat_kirim&text=Nama:%20$name%20%0DNIM:%20$NIM%20%0DProdi:%20$prodi%20%0DEmail:%20$email%20%0DPesan:%20$pesan");
+
+    }
     
     /**
      * Show the form for creating a new resource.
