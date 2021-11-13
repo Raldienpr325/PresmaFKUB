@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/export-proses-dpm', [VoteMainController::class, 'dpmexport']);
         Route::get('/hasil-vote', [VoteMainController::class, 'grafik']);
         Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-        Route::resource('admin', AdminController::class);
+        // Route::resource('admin', AdminController::class);
     });
     
     
@@ -88,7 +88,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim');//->middleware('auth');
         Route::get('/halaman-ceknim', [CeknimController::class, 'index']);//->middleware('auth');
         Route::get('/home', [VoteController::class, 'datavotepresma'])->name('home');//->middleware('auth');
-        Route::resource('editor', AdminController::class);
+        // Route::resource('editor', AdminController::class);
         // Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
     });
     

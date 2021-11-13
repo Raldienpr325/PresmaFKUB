@@ -121,7 +121,7 @@ class VoteMainController extends Controller
            $validatedData['foto'] = $request->file('foto')->store('post-images');
        }
        presma::create($validatedData);
-       return redirect('admin-vote')->with('toast_success', 'data berhasil ditambahkan !');
+       return redirect('admin-vote')->with('success', 'data berhasil ditambahkan !');
     }
     
     #DPM
@@ -137,7 +137,7 @@ class VoteMainController extends Controller
            $validatedData['fotodpm'] = $request2->file('fotodpm')->store('post-images-2');
        }
        dpm::create($validatedData);
-       return redirect('admin-vote-dpm')->with('toast_success', 'data berhasil ditambahkan !');
+       return redirect('admin-vote-dpm')->with('success', 'data berhasil ditambahkan !');
     }
     
     public function edit($id)

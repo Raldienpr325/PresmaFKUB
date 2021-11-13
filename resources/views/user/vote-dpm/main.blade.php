@@ -2,40 +2,46 @@
 @section('uvote-dpm')
 
 @foreach ($datas2 as $data)  
-<div class="row p-md-4">
-<div class="col-md-4">
-    <div class="card card-widget widget-user">
-        <div class="widget-user-header bg-info">
-          <h3 class="widget-user-username">{{ $data->namadpm }}</h3>
-        </div>
-        <div class="widget-user-image">
-            <img src="{{ asset('storage/'. $data->fotodpm) }}" style="max-height: 140px" alt="User Avatar" class="img-circle elevation-2">
-        </div>
-        <div class="card-footer">
-          <div class="row">
-            <div class="col-sm-4 border-right">
-              <div class="description-block">
-                <h5 class="description-header">Prodi : {{ $data->prodidpm }}</h5>
-              </div>
+<div align ="center" >
+  <div class="box-body">
+      <div class="col-md-7">
+        <div class="card card-widget widget-user" style="padding: 5px">
+          <div class="widget-user-header text-white" style="background: url('img/photo1.png') center center;">
+            <h3 class="widget-user-username text-right">{{ $data->namadpm }}</h3>
+            <h5 class="widget-user-desc text-right">Kandidat DPM</h5>
+          </div>
+            <div class="widget-user-image">
+                <img src="{{ asset('storage/'. $data->fotodpm) }}" style="max-height: 120px" alt="User Avatar" class="img-circle elevation-2">
             </div>
-            <div class="col-sm-4 border-right">
-              <div class="description-block">
-                <a href="{{ url('user.done-vote2',['usersid'=>$data->id,'name'=>Auth::user()->name]) }}">
-                  <button class="btn btn-danger" style="margin: 20px">Vote</button>  </a>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="description-block">
-                <h5 class="description-header">Angkatan : {{ $data->angkatandpm }}</h5>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                    <h5 style="margin-top: 20px">Prodi : {{ $data->prodidpm }}</h5>
+                  </div>
+                </div>
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                    <a href="{{ url('user.done-vote2',['usersid'=>$data->id,'name'=>Auth::user()->name]) }}">
+                      <button class="btn btn-danger" style="margin: 20px">Vote</button>  </a>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="description-block">
+                    <h5 style="margin-top: 20px">Angkatan : {{ $data->angkatandpm }}</h5>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 </div>
-</div>
+
+
 
 
 @endforeach
+@include('sweetalert::alert')
 @endsection
 

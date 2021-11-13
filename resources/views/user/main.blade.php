@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" >
     <div class="wrapper">
 
 
@@ -52,21 +52,7 @@
                 <!-- Messages Dropdown Menu -->
 
                 <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-user"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <div class="dropdown-divider"></div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button href="#" class="dropdown-item">
-                                <i class="fas fa-bell mr-2"></i> Logout
-                            </button>
-                        </form>
-
-                    </div>
-                </li>
+               
 
             </ul>
         </nav>
@@ -78,11 +64,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('adminLTE/dist') }}/img/user2-160x160.jpg" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="{{ asset('img/ubbaru.png') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Haloo {{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
                         <!-- {{ Auth::user()->name }} diambil dari layouts/app.blade.php -->
                     </div>
                 </div>
@@ -95,7 +80,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('vote-presma') }}" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-user-check"></i>
                                 <p>
                                     Vote Presma
                                 </p>
@@ -103,20 +88,13 @@
                         </li>
                         <li class="nav-item has-treeview menu-open">
                             <a href="{{ url('vote-dpm') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-user-graduate"></i>
                                 <p>
                                     Vote Dpm
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="{{ url('#') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>                               
-                                <p>
-                                    Logout
-                                </p>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -124,7 +102,7 @@
             <!-- /.sidebar -->
         </aside>
 
-        <div class="content-wrapper">
+        <div class="content-wrapper" >
 
             <section class="content">
             @yield('uvote-presma')
