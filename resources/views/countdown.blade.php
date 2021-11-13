@@ -21,6 +21,8 @@
                 <li><span id="seconds"></span>Seconds</li>
             </ul>
             <a href="{{ url('login') }}">Vote !!</a>
+            <p>Atau</p>
+            <a href="{{ url('halaman-logintoken') }}">Gunakan Token</a>
         </div>
         <div id="button">
             <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>

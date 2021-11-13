@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TokenUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -11,8 +12,8 @@ use App\Http\Controllers\CeknimController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VoteMainController;
 use App\Http\Controllers\CountdownController;
-use App\Http\Controllers\DashboardMainController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\DashboardMainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::get('/admin-login', [AdminLoginController::class, 'index']);
 Route::post('/adminlogindata', [AdminLoginController::class, 'adminlogin'])->name('loginadmin')->middleware('guest');
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
+Route::get('/halaman-logintoken', [TokenUserController::class, 'index'])->name('halaman-logintoken');
+Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cektoken');
+Route::post('/data-diri-pemilih', [TokenUserController::class, 'datadiripemilih'])->name('datadiripemilih');
+
 
 //khusus user
 // Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
