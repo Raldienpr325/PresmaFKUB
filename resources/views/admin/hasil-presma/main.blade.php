@@ -43,9 +43,9 @@
         }
     },
     series: [{
-        name: 'Hasil',
+        name: 'Hasil suara',
         colorByPoint: true,
-        data: {!! json_encode($hasil) !!}
+        data: {!! json_encode($Perolehan_suara) !!}
     }]
 });         
         })

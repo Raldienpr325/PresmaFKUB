@@ -34,16 +34,13 @@ Auth::routes();
 Route::get('/', [CountdownController::class, 'countdowncontroller'])->middleware('guest');
 Route::get('/opsi', [OpsiController::class, 'opsicontroller'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
-Route::get('/admin-login', [AdminLoginController::class, 'index'])->middleware('guest');
+Route::get('/admin-login', [AdminLoginController::class, 'index']);
 Route::post('/adminlogindata', [AdminLoginController::class, 'adminlogin'])->name('loginadmin')->middleware('guest');
-Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login')->middleware('guest');
-Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback')->middleware('guest');
-Route::get('/halaman-logintoken', [TokenUserController::class, 'index'])->name('halaman-logintoken')->middleware('guest');
-Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cektoken')->middleware('guest');
-Route::post('/data-diri-pemilih', [TokenUserController::class, 'datadiripemilih'])->name('datadiripemilih')->middleware('guest');
-Route::get('/halaman-last-session', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
-Route::get('/daftar-memilih', [TokenUserController::class, 'halamanusertambahan'])->name('halamanusertambahan')->middleware('guest');
-Route::post('/data-pendaftar', [TokenUserController::class, 'datausertambahan'])->name('usertambahan')->middleware('guest');
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
+Route::get('/halaman-logintoken', [TokenUserController::class, 'index'])->name('halaman-logintoken');
+Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cektoken');
+Route::post('/data-diri-pemilih', [TokenUserController::class, 'datadiripemilih'])->name('datadiripemilih');
 
 
 //khusus user
@@ -80,7 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/export-proses-dpm', [VoteMainController::class, 'dpmexport']);
         Route::get('/hasil-vote', [VoteMainController::class, 'grafik']);
         Route::post('/simpan-vote', [VoteMainController::class, 'store']);
-        // Route::resource('admin', AdminController::class);
+        Route::resource('admin', AdminController::class);
     });
     
     
@@ -91,7 +88,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/ceknim', [CeknimController::class, 'store'])->name('ceknim');//->middleware('auth');
         Route::get('/halaman-ceknim', [CeknimController::class, 'index']);//->middleware('auth');
         Route::get('/home', [VoteController::class, 'datavotepresma'])->name('home');//->middleware('auth');
-        // Route::resource('editor', AdminController::class);
+        Route::resource('editor', AdminController::class);
         // Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
     });
     

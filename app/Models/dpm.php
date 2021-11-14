@@ -11,5 +11,5 @@ class dpm extends Model
     protected $table = "dpms";
     protected $primaryKey = "id";
     protected $fillable = [
-       'id','fotodpm','namadpm','angkatandpm','prodidpm'];
+       'id','fotodpm','namadpm','angkatandpm','prodidpm','nourutdpm'];
 }

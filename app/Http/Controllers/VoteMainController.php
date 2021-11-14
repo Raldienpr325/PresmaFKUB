@@ -53,7 +53,7 @@ class VoteMainController extends Controller
         $hvoting = voting::paginate(100);
         $title = 'hasil voting presma';
         $presma = presma::get();
-        $hasil = [];
+        $Perolehan_suara = [];
         
        foreach ($presma as $key => $ps){
            $id_presma = $ps->id;  
@@ -62,10 +62,10 @@ class VoteMainController extends Controller
            
            $a['name'] = $nama_presma;
            $a['y'] = $total;
-           array_push($hasil,$a);
+           array_push($Perolehan_suara,$a);
            
        }
-       return view('admin.hasil-presma.main',compact('title','hasil'));
+       return view('admin.hasil-presma.main',compact('title','Perolehan_suara'));
     }
     #CHART DPM
     public function hasilvoting2()
@@ -116,6 +116,7 @@ class VoteMainController extends Controller
            'nama' => 'required',
            'angkatan' => 'required',
            'prodi' => 'required',
+           'nourut' => 'required',
        ]);
        if($request->file('foto')){
            $validatedData['foto'] = $request->file('foto')->store('post-images');
@@ -132,6 +133,7 @@ class VoteMainController extends Controller
            'namadpm' => 'required',
            'angkatandpm' => 'required',
            'prodidpm' => 'required',
+           'nourutdpm' => 'required',
        ]);
        if($request2->file('fotodpm')){
            $validatedData['fotodpm'] = $request2->file('fotodpm')->store('post-images-2');

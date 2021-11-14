@@ -25,6 +25,10 @@
                     @enderror" placeholder="prodi dpm" required autofocus  value="{{ $dpm->prodidpm}}">
                 </div>
                 <div class="form-group">
+                    <input type="text" id="nourutdpm" name="nourutdpm" class="form-control @error('nourutdpm') is-invalid     
+                    @enderror" placeholder="nourutdpm" required autofocus  value="{{ $dpm->nourutdpm}}">
+                </div>
+                <div class="form-group">
                     <button class="btn btn-success btn-group-sm">edit data</button>
                 </div>
             </form>

@@ -52,7 +52,21 @@
                 <!-- Messages Dropdown Menu -->
 
                 <!-- Notifications Dropdown Menu -->
-               
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button href="#" class="dropdown-item">
+                                <i class="fas fa-bell mr-2"></i> Logout
+                            </button>
+                        </form>
+
+                    </div>
+                </li>
 
             </ul>
         </nav>

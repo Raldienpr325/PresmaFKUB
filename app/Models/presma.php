@@ -11,5 +11,5 @@ class presma extends Model
     protected $table = "presmas";
     protected $primaryKey = "id";
     protected $fillable = [
-       'id','foto','nama','angkatan','prodi'];
+       'id','foto','nama','angkatan','prodi','nourut'];
 }

@@ -10,20 +10,24 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
+                    <th>No </th>
                     <th>Foto PRESMA</th>
                     <th>Nama</th>
                     <th>Prodi</th>
                     <th>Tahun Angkatan</th>
+                    <th>No urut</th>
                     <th>action</th>
                 </tr>
                 @foreach ($dtvote as $item)
                     <tr>
+                        <td>{{ $loop->iteration }} </td>
                         <td>   
                             <img src="{{ asset('storage/'. $item->foto) }}" style="max-height: 140px">
                         </td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->prodi }}</td>
                         <td>{{ $item->angkatan }}</td>
+                        <td>{{ $item->nourut }}</td>
                         <td>
                             <a href="{{ url('delete-vote', $item->id) }}"> <button
                                     class="btn btn-danger">delete</button></a>

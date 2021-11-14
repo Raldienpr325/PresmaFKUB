@@ -1,47 +1,39 @@
 @extends('user.main')
 @section('uvote-dpm')
 
-@foreach ($datas2 as $data)  
-<div align ="center" >
-  <div class="box-body">
-      <div class="col-md-7">
-        <div class="card card-widget widget-user" style="padding: 5px">
-          <div class="widget-user-header text-white" style="background: url('img/photo1.png') center center;">
-            <h3 class="widget-user-username text-right">{{ $data->namadpm }}</h3>
-            <h5 class="widget-user-desc text-right">Kandidat DPM</h5>
-          </div>
-            <div class="widget-user-image">
-                <img src="{{ asset('storage/'. $data->fotodpm) }}" style="max-height: 120px" alt="User Avatar" class="img-circle elevation-2">
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 style="margin-top: 20px">Prodi : {{ $data->prodidpm }}</h5>
-                  </div>
-                </div>
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <a href="{{ url('user.done-vote2',['usersid'=>$data->id,'name'=>Auth::user()->name]) }}">
-                      <button class="btn btn-danger" style="margin: 20px">Vote</button>  </a>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="description-block">
-                    <h5 style="margin-top: 20px">Angkatan : {{ $data->angkatandpm }}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    @foreach ($datas2 as $data)
+    <div class="col-md-4 p-md-4">
+      <div class="card text-white bg-light" >
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img
+            src="{{ asset('storage/'. $data->fotodpm) }}"
+            class=" img-fluid" width="400" height="100"
+          />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><h3>{{ $data->namadpm }} ( {{ $data->nourutdpm }} )</h3> </h5>
+          <p class="card-text"> Prodi {{ $data->prodidpm }} | Angkatan {{ $data->angkatandpm }}</p>
+              <a href="{{ url('user.done-vote2',[
+                'usersid'=>$data->id,
+                'name'=>Auth::user()->name]
+                ) }}">
+                <button class="btn btn-secondary btn-lg " >Vote</button>  </a>
         </div>
       </div>
+    </div>
+    @endforeach
+  </div>
 </div>
 
 
 
 
-@endforeach
+
 @include('sweetalert::alert')
 @endsection
 

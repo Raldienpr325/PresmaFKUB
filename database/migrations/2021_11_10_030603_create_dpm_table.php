@@ -19,6 +19,7 @@ class CreateDpmTable extends Migration
             $table->string('angkatandpm',4);
             $table->string('namadpm', 20);
             $table->string('prodidpm', 10);
+            $table->string('nourutdpm',5);
             $table->timestamps();
         });
     }

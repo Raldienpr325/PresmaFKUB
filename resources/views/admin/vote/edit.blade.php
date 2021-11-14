@@ -25,6 +25,10 @@
                     @enderror" placeholder="prodi Presma" required autofocus  value="{{ $presma->prodi }}">
                 </div>
                 <div class="form-group">
+                    <input type="text" id="nourut" name="nourut" class="form-control @error('nourut') is-invalid     
+                    @enderror" placeholder="No Urut" required autofocus  value="{{ $presma->nourut }}">
+                </div>
+                <div class="form-group">
                     <button class="btn btn-success btn-group-sm">input data</button>
                 </div>
             </form>
