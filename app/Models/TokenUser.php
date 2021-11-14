@@ -9,5 +9,14 @@ class TokenUser extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'token'];
+        'token','name','email','locale','google_id','level',];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

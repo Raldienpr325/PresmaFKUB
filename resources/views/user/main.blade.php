@@ -109,6 +109,13 @@
                             </a>
                         </li>
                         
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="p-md-">
+                            @csrf
+                            <button href="#" class=" btn-dark btn-sm">
+                             Logout
+                            </button>
+                        </form>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

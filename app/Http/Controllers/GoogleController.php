@@ -28,7 +28,11 @@ class GoogleController extends Controller
             if($finduser){
                 $leveluser = DB::table('users')->where('google_id', $user->getId())->value('level');
                 if($leveluser == 'superuser'){
-                    return redirect('login')->with('failedrelogin', 'Anda sudah pernah memilih, Terima Kasih.');
+                    DB::table('users')
+                    ->where('google_id', $user->getId())
+                    ->update(['level' => 'user']);
+                    Auth::login($finduser);
+                    return redirect()->intended('/');
                 }
                 else{
                 Auth::login($finduser);
@@ -49,6 +53,8 @@ class GoogleController extends Controller
                 Auth::login($newUser);
                 return redirect()->intended('/');
             }
+        } else {
+            return redirect('/login');
         }
         } catch (\Throwable $th) {
 

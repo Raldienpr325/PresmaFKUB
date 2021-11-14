@@ -6,14 +6,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Diri Anda</title>
-    <link rel="stylesheet" href="/css/login.css">
+    {{-- <link rel="stylesheet" href="/css/login.css"> --}}
+    
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+body {
+    font-family: Arial;
+    /* background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG'); */
+    height: 100%;
+    padding: 50px;
+    background: url(/img/ub3edit.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "poppins";
+    font-size: 22px;
+}
+.login {
+    margin: 50px auto;
+    width: 300px;
+}
+.login-screen {
+    background-color: rgba(255, 255, 255, 0.904);
+    padding: 20px;
+    padding-top: 1px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.438),
+        0 6px 20px 0 rgba(255, 255, 255, 0.514);
+}
+
+.app-title {
+    text-align: center;
+    color: #777;
+    font-family: "poppins";
+}
+
+.login-form {
+    text-align: center;
+}
+.control-group {
+    margin-bottom: 10px;
+}
+
+input {
+    text-align: center;
+    background-color: #ecf0f1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border 0.5s;
+}
+
+input:focus {
+    border: 2px solid #3498db;
+    box-shadow: none;
+}
+
+.btn {
+    border: 2px solid transparent;
+    background: #3498db;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    font-family: "poppins";
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+    body {
+        font-family: Arial;
+        background-image: url("https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG");
+        padding: 10px;
+    }
+}
+
+
+
+     </style>
 </head>
 
 <body>
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
-                <h1>Register</h1>
+                <h1>Problem ?</h1>
             </div>
             <form method="POST" action="{{ route('usertambahan') }}">
                 @csrf
@@ -28,7 +134,7 @@
                 <div class="login-form">
                     <div class="control-group">
                         <input type="text" class="login-field" value="" placeholder="Nama Anda" id="login-name"
-                            name="name" autofocus>
+                            name="name" autofocus required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('name')
@@ -38,8 +144,8 @@
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="NIM" id="login-name"
-                            name="NIM">
+                        <input type="text" class="login-field" value="" placeholder="Nomor Induk" id="login-name"
+                            name="NIM"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('NIM')
@@ -49,8 +155,8 @@
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="Prodi Anda" id="login-name"
-                            name="prodi">
+                        <input type="text" class="login-field" value="" placeholder="Mahasiswa / Dosen" id="login-name"
+                            name="prodi"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('prodi')
@@ -61,7 +167,7 @@
 
                     <div class="control-group">
                         <input type="text" class="login-field" value="" placeholder="Email Anda" id="login-name"
-                            name="email">
+                            name="email"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('email')
@@ -71,8 +177,8 @@
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value=" Tolong izinkan saya untuk memilih." placeholder="" id="login-name"
-                            name="pesan" readonly>
+                        <input type="text" class="login-field" value="" placeholder="Tulis masalah Anda di sini..." id="login-name"
+                            name="pesan"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('pesan')
@@ -108,7 +214,7 @@
                     @enderror --}}
 
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Dapatkan Token') }}
+                        {{ __('Kirim') }}
                     </button>
                     <br>
                     {{-- @if (Route::has('register'))

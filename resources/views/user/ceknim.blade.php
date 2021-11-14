@@ -29,13 +29,13 @@
 
                 <div class="control-group">
                     <input type="text" class="login-field" value="" placeholder="Nama" id="login-name"
-                        name="nama">
+                        name="nama" required>
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
 
                 <div class="control-group">
                     <input type="text" class="login-field" value="" placeholder="NIM" id="login-name"
-                    name="NIM">
+                    name="NIM" required>
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
                 

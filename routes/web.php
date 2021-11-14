@@ -36,12 +36,14 @@ Route::get('/opsi', [OpsiController::class, 'opsicontroller'])->middleware('gues
 Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
 Route::get('/admin-login', [AdminLoginController::class, 'index']);
 Route::post('/adminlogindata', [AdminLoginController::class, 'adminlogin'])->name('loginadmin')->middleware('guest');
-Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback');
-Route::get('/halaman-logintoken', [TokenUserController::class, 'index'])->name('halaman-logintoken');
-Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cektoken');
-Route::post('/data-diri-pemilih', [TokenUserController::class, 'datadiripemilih'])->name('datadiripemilih');
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login')->middleware('guest');
+Route::get('/auth/google/callback', [App\Http\Controllers\GoogleController::class, 'handelGoogleCallback'])->name('google.callback')->middleware('guest');
+Route::get('/halaman-logintoken', [TokenUserController::class, 'index'])->name('halaman-logintoken')->middleware('guest');
+Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cektoken')->middleware('guest');
+Route::post('/pesan-masalah', [TokenUserController::class, 'kirimpesanmasalah'])->name('usertambahan')->middleware('guest');
+Route::get('/user-service', [TokenUserController::class, 'halamanusertambahan'])->name('user-service')->middleware('guest');
 
+Route::get('/halaman-last-session', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
 
 //khusus user
 // Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
@@ -105,5 +107,3 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/user.done-vote2/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
     });
 });
-
-//khusu admin

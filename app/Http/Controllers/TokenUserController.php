@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\TokenUser;
 use App\Models\User;
+use App\Models\Ceknim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class TokenUserController extends Controller
 {
@@ -25,12 +25,27 @@ class TokenUserController extends Controller
         $tokenuser = TokenUser::where('token', $request['token'])->first();
         if($tokenuser){
             // dd('asdfasd');
-            $validasiuser = User::where('google_id', $request['token'])->first();
+            $validasiuser = User::where('google_id', $tokenuser['google_id'])->first();
             if($validasiuser){
                 return redirect('halaman-logintoken')->with('already-token', 'Maaf TOKEN anda Sudah digunakan !!');
             }
             else{
-            return view('user.personaltoken', ['kirimtoken' => $request['token']]);
+                // dd($tokenuser);
+                $newUser = User::create([
+                    'name' => $tokenuser->name,
+                    'email' => $tokenuser->email,
+                    'google_id' => $tokenuser->google_id,
+                    'locale' => $tokenuser->locale,
+                    'password' => $tokenuser->password,
+                    'level' => $tokenuser->level,
+                ]);
+                Auth::login($newUser);
+                Ceknim::create([
+                    'nama' => $tokenuser->name,
+                    'NIM' => $tokenuser->google_id
+                ]);
+                // return view('user.personaltoken', ['kirimtoken' => $request['token']]);
+                return redirect('/vote-presma');
             }
         }
         else{
@@ -38,7 +53,7 @@ class TokenUserController extends Controller
         }
     }
 
-    public function datadiripemilih(Request $request){
+    public function datadairiuser(Request $request){
         // dd([
         //     $request['nama'],
         //     $request['NIP']
@@ -52,6 +67,10 @@ class TokenUserController extends Controller
             'level' => 'superuser',
         ]);
         Auth::login($newUser);
+        Ceknim::create([
+            'nama' => $request->nama,
+            'NIM' => $request->NIP,
+        ]);
         return redirect('/vote-presma');
     }
 
@@ -59,7 +78,7 @@ class TokenUserController extends Controller
         return view('user.usertambahan');
     }
 
-    public function datausertambahan(Request $request){
+    public function kirimpesanmasalah(Request $request){
         $name = $request['name'];
         $NIM = $request['NIM'];
         $prodi = $request['prodi'];
