@@ -119,7 +119,7 @@ input:focus {
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
-                <h1>Register</h1>
+                <h1>Problem ?</h1>
             </div>
             <form method="POST" action="{{ route('usertambahan') }}">
                 @csrf
@@ -134,7 +134,7 @@ input:focus {
                 <div class="login-form">
                     <div class="control-group">
                         <input type="text" class="login-field" value="" placeholder="Nama Anda" id="login-name"
-                            name="name" autofocus>
+                            name="name" autofocus required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('name')
@@ -144,8 +144,8 @@ input:focus {
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="NIM" id="login-name"
-                            name="NIM">
+                        <input type="text" class="login-field" value="" placeholder="Nomor Induk" id="login-name"
+                            name="NIM"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('NIM')
@@ -155,8 +155,8 @@ input:focus {
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="Prodi Anda" id="login-name"
-                            name="prodi">
+                        <input type="text" class="login-field" value="" placeholder="Mahasiswa / Dosen" id="login-name"
+                            name="prodi"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('prodi')
@@ -167,7 +167,7 @@ input:focus {
 
                     <div class="control-group">
                         <input type="text" class="login-field" value="" placeholder="Email Anda" id="login-name"
-                            name="email">
+                            name="email"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('email')
@@ -177,8 +177,8 @@ input:focus {
                     @enderror
 
                     <div class="control-group">
-                        <input type="text" class="login-field" value=" Tolong izinkan saya untuk memilih." placeholder="" id="login-name"
-                            name="pesan" readonly>
+                        <input type="text" class="login-field" value="" placeholder="Tulis masalah Anda di sini..." id="login-name"
+                            name="pesan"  required>
                         <label class="login-field-icon fui-user" for="login-name"></label>
                     </div>
                     @error('pesan')
@@ -214,7 +214,7 @@ input:focus {
                     @enderror --}}
 
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Dapatkan Token') }}
+                        {{ __('Kirim') }}
                     </button>
                     <br>
                     {{-- @if (Route::has('register'))

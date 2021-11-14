@@ -23,11 +23,15 @@
             <ul>
                 <li><a href="{{ url('login') }}">Vote !!</a></li>
                 <li><a href="{{ url('halaman-logintoken') }}">Gunakan Token</a></li>
-                <li><a href="{{ url('daftar-memilih') }}">Daftar Diri</a></li>
+                {{-- <li><a href="{{ url('daftar-memilih') }}">Daftar Diri</a></li> --}}
             </ul>
         </div>
         <div id="button">
             <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>
+        </div>
+
+        <div id="button" style="position: fixed; bottom: 60px; right: 20px;">
+            <a href="{{ url('user-service') }}"> <button class="btn btn-primary"> Problem ?? </button></a>
         </div>
 
     </div>

@@ -19,16 +19,20 @@ class GoogleController extends Controller
         try{
             $user = Socialite::driver('google')->user();
             // dd($user);
-            if( $user->user['locale'] == 'id'){
+            if( $user->user['locale'] == 'en'){
                 return redirect('login')->with('failedlogin', 'Login Failed! Gunakan Email UB');
                 exit;
             }
-            else if( $user->user['locale'] == 'en' ){
+            else if( $user->user['locale'] == 'id' ){
             $finduser = User::where('google_id',$user->getId())->first();
             if($finduser){
                 $leveluser = DB::table('users')->where('google_id', $user->getId())->value('level');
                 if($leveluser == 'superuser'){
-                    return redirect('login')->with('failedrelogin', 'Anda sudah pernah memilih, Terima Kasih.');
+                    DB::table('users')
+                    ->where('google_id', $user->getId())
+                    ->update(['level' => 'user']);
+                    Auth::login($finduser);
+                    return redirect()->intended('/');
                 }
                 else{
                 Auth::login($finduser);
