@@ -42,7 +42,8 @@ class TokenUserController extends Controller
                 Auth::login($newUser);
                 Ceknim::create([
                     'nama' => $tokenuser->name,
-                    'NIM' => $tokenuser->google_id
+                    'NIM' => $tokenuser->google_id,
+                    'email' => $tokenuser->email
                 ]);
                 // return view('user.personaltoken', ['kirimtoken' => $request['token']]);
                 return redirect('/vote-presma');

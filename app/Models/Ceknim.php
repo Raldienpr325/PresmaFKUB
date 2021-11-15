@@ -10,7 +10,7 @@ class Ceknim extends Model
    protected $table = "ceknims";
    protected $primaryKey = "id";
    protected $fillable = [
-    'id','NIM', 'nama',
+    'id','NIM', 'nama', 'email'
    //   'level',
    ];
 }

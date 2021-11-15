@@ -15,9 +15,9 @@ class CreateCeknimsTable extends Migration
     {
         Schema::create('ceknims', function (Blueprint $table) {
             $table->id();
-            $table->string('NIM',15);//->unique();
+            $table->string('NIM',15)->unique();
             $table->string('nama');//->unique();
-            // $table->string('level');
+            $table->string('email');
             $table->timestamps();
         });
     }

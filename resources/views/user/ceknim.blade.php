@@ -19,6 +19,13 @@
                 <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
             </div>
             @endif
+
+            @if(session()->has('failedceknim'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('failedceknim') }}
+                <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
+            </div>
+            @endif
             
             <div class="app-title">
                 <h4>Masukkan NIM Anda</h4>
@@ -28,8 +35,14 @@
                 @csrf
 
                 <div class="control-group">
-                    <input type="text" class="login-field" value="" placeholder="Nama" id="login-name"
-                        name="nama" required>
+                    <input type="text" class="login-field" value="{{ Auth::user()->email }}" placeholder="" id="login-name"
+                        name="email" readonly>
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="text" class="login-field" value="{{ Auth::user()->name }}" placeholder="" id="login-name"
+                        name="nama" readonly>
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
 
