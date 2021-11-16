@@ -7,6 +7,7 @@ use App\Models\presma;
 use App\Models\voting;
 use App\Models\voting2;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 // use Bilfeldt\LaravelFlashMessage\Message;
 
 
@@ -31,18 +32,32 @@ class VoteController extends Controller
     }
 
     public function datavotepresma(){
-        $datapresma = presma::all();
-        return view('user.vote-presma.main', [
+        $cekpresensi = DB::table('votings')->where('name', Auth::user()->name)->first();
+        if($cekpresensi){
+            return view('user.Donevote', [
+                'title' => 'Vote Presma',
+            ]);
+        }else {
+            $datapresma = presma::all();
+            return view('user.vote-presma.main', [
                 'title' => 'Vote',
                 'datas' => $datapresma,
             ]);
+        }
     }
     
     public function datavotedpm(){
+        $cekpresensi = DB::table('voting2s')->where('name', Auth::user()->name)->first();
+        if($cekpresensi){
+            return view('user.logout.main', [
+                'title' => 'Logout Vote',
+            ]);
+        } else {
         $datadpm = dpm::all();
         return view('user.vote-dpm.main', [
                 'title' => 'Vote',
                 'datas2' => $datadpm,]);
+        }
     }
     public function vote($id){
         

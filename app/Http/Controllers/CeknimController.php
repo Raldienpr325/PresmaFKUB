@@ -19,12 +19,36 @@ class CeknimController extends Controller
         $validatedData = $request->validate([
             'NIM' => 'required',
             'nama' => 'required',
+            'email' =>'required',
             // 'level' => 'required',
         ]);
-        // dd($validatedData['NIM']);
+        // dd($request);
+        // dd($validatedData);
         $validasiNIM = explode("5060",$validatedData['NIM']);
         if( strlen($validasiNIM['0']) == "2" && strlen($validasiNIM['1']) == "9"){
-            Ceknim::create($validatedData);
+            $cekkeberadaanNIM = DB::table('ceknims')->where('email', $validatedData['email'])->value('NIM');
+            $cekkeberadaanemail = DB::table('ceknims')->where('email', $validatedData['email'])->first();
+            $cekkeberadaanuserNIM = DB::table('ceknims')->where('NIM', $validatedData['NIM'])->first();
+            if(!$cekkeberadaanemail){
+                if($cekkeberadaanuserNIM){
+                    return redirect('/halaman-ceknim')->with('failedceknim', 'Data Salah');
+                } else {
+                    Ceknim::create($validatedData);
+                    DB::table('users')
+                    ->where('id', Auth::user()->id)
+                    ->update(['level' => 'superuser']);
+                    return redirect('/vote-presma');
+                }
+            } else if($cekkeberadaanemail && $cekkeberadaanNIM == $validatedData['NIM']){
+                DB::table('users')
+                ->where('id', Auth::user()->id)
+                ->update(['level' => 'superuser']);
+                return redirect('/vote-presma');
+            } else {
+                return redirect('/halaman-ceknim')->with('failedceknim', 'Data Salah');
+            }
+            // return dd($user);
+            // $user = DB::table('users')->find(Auth::user()->id);
             // $datauser = User::find(Auth::user()->id);
             // return dd($datauser);
             // $kirim_NIM = $validatedData['NIM'];
@@ -37,12 +61,6 @@ class CeknimController extends Controller
             //     'datas' => $datapresma,
             // ]);
             // dd($user);
-            DB::table('users')
-            ->where('id', Auth::user()->id)
-            ->update(['level' => 'superuser']);
-            // $user = DB::table('users')->find(Auth::user()->id);
-            // return dd($user);
-            return redirect('/vote-presma');
         }
         else {
             return redirect('/halaman-ceknim')->with('failedlogin', 'NIM anda tidak sesuai!!');

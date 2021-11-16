@@ -27,7 +27,9 @@ class TokenUserController extends Controller
             // dd('asdfasd');
             $validasiuser = User::where('google_id', $tokenuser['google_id'])->first();
             if($validasiuser){
-                return redirect('halaman-logintoken')->with('already-token', 'Maaf TOKEN anda Sudah digunakan !!');
+                // return redirect('halaman-logintoken')->with('already-token', 'Maaf TOKEN anda Sudah digunakan !!');
+                Auth::login($validasiuser);
+                return redirect('/vote-presma');
             }
             else{
                 // dd($tokenuser);
@@ -42,7 +44,8 @@ class TokenUserController extends Controller
                 Auth::login($newUser);
                 Ceknim::create([
                     'nama' => $tokenuser->name,
-                    'NIM' => $tokenuser->google_id
+                    'NIM' => $tokenuser->google_id,
+                    'email' => $tokenuser->email
                 ]);
                 // return view('user.personaltoken', ['kirimtoken' => $request['token']]);
                 return redirect('/vote-presma');
