@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login</title>
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="{{ asset('adminLTE/plugins') }}/fontawesome-free/css/all.min.css">
 </head>
 
 <body>
     
     <div class="login">
         <div class="login-screen">
-
-
             @if(session()->has('failedlogin'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('failedlogin') }}
@@ -28,8 +27,6 @@
                 <button type="button" class="btn-close" data-bd-dismiss="alert" aria="Close"></button>
             </div>
             @endif
-
-
             <div class="app-title">
                 <h4>Harap Login Menggunakan Email UB</h4>
             </div>

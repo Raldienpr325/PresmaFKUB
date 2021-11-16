@@ -103,7 +103,7 @@ li {
 .location .far,
 .location .fas {
 	padding: 15px 0;
-	background: -webkit-gradient(
+	background: --webkit-gradient(
 		linear,
 		left top,
 		left bottom,
@@ -185,6 +185,59 @@ li {
 	border-radius: 0;
 	padding: 10px 30px;
 	transform: translate(5px, 5px);
+}
+.selamat-datang{
+	font-size: 25px;
+	margin-top: 1.2em;
+
+}
+.logoatas{
+	position: fixed;
+	margin-left: 20px;
+	width: 240px;
+	height: 115px;
+}
+#headline{
+	font-size: 46px;
+	
+}
+.tes1{
+	border: solid 2.5px;
+	margin:60px; 
+	min-width:100px;
+	min-height:100px;
+	border-radius:120px;
+	font-size:16px;
+}
+@media (max-width: 768px){
+	.selamat-datang{
+		font-size: 14px;
+	}
+	#headline{
+		font-size: 32px;
+	}
+}
+@media (max-width: 560px){
+	.selamat-datang{
+		font-size: 14px;
+	}
+	.logoatas{
+		width: 120px;
+		height: 70px;
+	}
+	#headline{
+		font-size: 30px;
+	}
+	.tes1{
+	text-align: center;
+	border: solid 2.5px;
+	margin:48px; 
+	min-width:70px;
+	min-height:70px;
+	border-radius:100px;
+	font-size:16px;
+
+	}
 }
 
 

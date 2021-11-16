@@ -10,9 +10,9 @@
 </head>
 
 <body>
+    <img src="img/LOGO.png" width="240px" height="115px"  class="logoatas2" >
     <div class="login">
         <div class="login-screen">
-
             @if(session()->has('failedlogin'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('failedlogin') }}
@@ -70,5 +70,14 @@
         </div>
     </div>
 </body>
+<style>
+    body{
+        background: url(img/bg2nibang.png);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+    }
+</style>
 
 </html>
