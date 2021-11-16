@@ -3,15 +3,12 @@
 use App\Http\Controllers\TokenUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpsiController;
 use App\Http\Controllers\VoteController;
-use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CeknimController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VoteMainController;
-use App\Http\Controllers\CountdownController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\DashboardMainController;
 
@@ -31,7 +28,6 @@ Auth::routes();
 
 
 //khusu guest
-// Route::get('/', [CountdownController::class, 'countdowncontroller'])->middleware('guest');
 Route::get('/', [OpsiController::class, 'opsicontroller'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
 Route::get('/admin-login', [AdminLoginController::class, 'index']);
@@ -45,11 +41,7 @@ Route::get('/user-service', [TokenUserController::class, 'halamanusertambahan'])
 
 Route::get('/halaman-last-session', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
 
-//khusus user
-// Route::get('/vote', [VoteController::class, 'datavotepresma'])->name('vote')->middleware('auth');//->middleware('CekNim');
-//khusus admin
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['CekLevel:admin']], function () {
@@ -67,7 +59,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin-proses-dpm', [VoteMainController::class, 'voting2']);
         Route::get('/admin-hasil-presma', [VoteMainController::class, 'hasilvoting']);
         Route::get('/admin-hasil-dpm', [VoteMainController::class, 'hasilvoting2']);
-        // Route::get('/auth/google', [App\Http\Controllers\GoogleController::class, 'redirectToGoogle'])->name('google.login');
         
         
         Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);
@@ -91,7 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/halaman-ceknim', [CeknimController::class, 'index']);//->middleware('auth');
         Route::get('/home', [VoteController::class, 'datavotepresma'])->name('home');//->middleware('auth');
         Route::resource('editor', AdminController::class);
-        // Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
     });
     
     Route::group(['middleware' => ['CekLevel:superuser']], function () {
@@ -100,8 +90,6 @@ Route::group(['middleware' => ['auth']], function () {
         */
         Route::get('/vote-presma', [VoteController::class, 'datavotepresma'])->name('vote');//->middleware('auth');
         Route::get('/vote-dpm', [VoteController::class, 'datavotedpm'])->name('vote2');//->middleware('auth');
-        // Route::get('/user.done-vote/{id}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
-        // Route::get('/user.done-vote2/{id}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');
         Route::get('/home', [App\Http\Controllers\VoteController::class, 'datavotepresma']);//->name('home')->middleware('auth');
         Route::get('/user.done-vote/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote']);//->name('done')->middleware('auth');
         Route::get('/user.done-vote2/{usersid}/{name}', [App\Http\Controllers\VoteController::class, 'vote2']);//->name('done')->middleware('auth');

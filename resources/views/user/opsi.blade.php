@@ -12,22 +12,23 @@
 </head>
 
 <body >
-
+    <img src="img/ubbaru.png" width="50px" height="50px">
     <section class="services d-flex align-items-center py-5" id="services">
         <div class="container text-light">
             <div class="text-center pb-4">
                 <h1 id="headline">Countdown </h1>
-                <div id="countdown">
+                <div id="countdown" >
+                    
                     <ul>
-                        <li><span id="days"></span>days</li>
-                        <li><span id="hours"></span>Hours</li>
-                        <li><span id="minutes"></span>Minutes</li>
-                        <li><span id="seconds"></span>Seconds</li>
+                        <li style="border: solid 2.5px;margin:60px; min-width:100px;min-height:100px;border-radius:120px;font-size:16px " class="p-md-4"><span id="days"></span><br>Hari</li>
+                        <li style="border: solid 2.5px;margin:60px; min-width:100px;min-height:100px;border-radius:120px;font-size:16px " class="p-md-4"><span id="hours"></span><br>Jam</li>
+                        <li style="border: solid 2.5px;margin:60px; min-width:100px;min-height:100px;border-radius:120px;font-size:16px " class="p-md-4"><span id="minutes"></span><br>Menit</li>
+                        <li style="border: solid 2.5px;margin:60px; min-width:100px;min-height:100px;border-radius:120px;font-size:16px " class="p-md-4"><span id="seconds"></span><br>Detik</li>
                     </ul>
                 </div>
-                <p style="font-size: 15px;margin-top: 1.2em">Selamat Datang Di E-Vote PRESMA & DPM FKUB 2021/2022</p>
-                <h2 class="py-2">Universitas Brawijaya Malang</h2>
-                <img src="{{ asset('img/th.png') }}" height="110px" width="298px" 200px alt="">
+                <p style="font-size: 25px;margin-top: 1.2em">Selamat Datang Di E-Vote PRESMA & DPM FKUB 2021/2022 Universitas Brawijaya Malang</p>
+                <h2 class="py-2"></h2>
+     
                 <br>
 
                 @if(session()->has('failedlogin'))
@@ -70,9 +71,12 @@
 </body>
 <style>
     body{
-        background: url(img/photo1.png);
-    }
+        background: url(img/bg1bang.png);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
     
+    }
     li {
         margin-top: -1.2em;
         display: inline-block;
