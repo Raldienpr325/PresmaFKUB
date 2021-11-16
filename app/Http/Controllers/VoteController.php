@@ -32,7 +32,7 @@ class VoteController extends Controller
     }
 
     public function datavotepresma(){
-        $cekpresensi = DB::table('votings')->where('name', Auth::user()->name)->first();
+        $cekpresensi = DB::table('votings')->where('user-name', Auth::user()->name)->first();
         if($cekpresensi){
             return view('user.Donevote', [
                 'title' => 'Vote Presma',
@@ -47,7 +47,7 @@ class VoteController extends Controller
     }
     
     public function datavotedpm(){
-        $cekpresensi = DB::table('voting2s')->where('name', Auth::user()->name)->first();
+        $cekpresensi = DB::table('voting2s')->where('user-name', Auth::user()->name)->first();
         if($cekpresensi){
             return view('user.logout.main', [
                 'title' => 'Logout Vote',
@@ -60,11 +60,23 @@ class VoteController extends Controller
         }
     }
     public function vote($id){
-        
+        $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
+        $datapresma = DB::table('presmas')->where('id', $id)->first();
+        // dd($datauser->NIM);
         $datadpm = dpm::all();
         $data = voting::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
             ['usersid'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
-            ['presmasid'=>$id,'usersid'=>Auth::user()->id,'name'=>Auth::user()->name]
+            [
+                'user-name'=> $datauser->nama,
+                'user-NIM' => $datauser->NIM,
+                'presma-name' => $datapresma->nama,
+                'presmasid'=>$id,
+                'usersid'=>Auth::user()->id,
+                'name'=>Auth::user()->name
+            ],
+            // ['user-NIM' => $datauser->NIM],
+            // ['presma-name' => $datapresma->nama],
+            // ['presmasid'=>$id,'usersid'=>Auth::user()->id,'name'=>Auth::user()->name]
             #Jika data belum ada maka add presmas_id dan users_id
         );
         return view('user.vote-dpm.main',[ 
@@ -75,9 +87,16 @@ class VoteController extends Controller
     }
 
     public function vote2($id){
-        $data = voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
+        $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
+        $datadpm = DB::table('dpms')->where('id', $id)->first();
+        voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
             ['usersid'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
-            ['dpmsid'=>$id,'usersid'=>Auth::user()->id,'name'=> Auth::user()->name] #Jika data belum ada maka add presmas_id dan users_id
+            ['dpmsid'=>$id,
+            'user-name' => $datauser->nama,
+            'user-NIM' => $datauser->NIM,
+            'dpm-name' => $datadpm->namadpm,
+            'usersid'=>Auth::user()->id,
+            'name'=> Auth::user()->name] #Jika data belum ada maka add presmas_id dan users_id
         );
       return view('user.logout.main', [
         'title' => 'Logout Vote',

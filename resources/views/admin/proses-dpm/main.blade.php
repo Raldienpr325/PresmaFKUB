@@ -11,16 +11,20 @@
             <tr>
                 <th>No</th>
                 <th>Users_id</th>
-                <th>Name</th>
-                <th>dpm_id</th>
+                <th>Nama Pemilih</th>
+                <th>NIM Pemilih</th>
+                <th>DPM_id</th>
+                <th>Nama DPM</th>
             
             </tr>
             @foreach ($voting2 as $item)
                 <tr>
                  <td>{{ $loop->iteration }}</td>
                  <td>{{ $item->usersid }}</td>
-                 <td>{{ $item->name }}</td>
+                 <td>{{ $item['user-name'] }}</td>
+                 <td>{{ $item['user-NIM'] }}</td>
                  <td>{{ $item->dpmsid }}</td>
+                 <td>{{ $item['dpm-name'] }}</td>
                 </tr>
             @endforeach
         </table>
