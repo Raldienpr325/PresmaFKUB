@@ -40,9 +40,11 @@ class AdminLoginController extends Controller
             // if (Auth::attempt($request->only('email', 'password'))){
             //     return redirect('/admin-vote');
             // }
-        $cekakun = DB::table('user')->where('email', $request['email'])->first();
+        // $cekakun = DB::table('users')->where('email', $request['email'])->first();
+        // dd($request['email']);
         if($request['email'] == 'adminevote@example.com' && $request['password'] == '12345678' && $request['name'] == 'adminevote'){
-            Auth::login($cekakun);
+            // Auth::login($cekakun);
+            Auth::attempt($request->only('email', 'password'));
             return redirect('/admin-vote');
         } else {
             return redirect('/admin-login')->with('failedlogin', 'Data Salah !!');
