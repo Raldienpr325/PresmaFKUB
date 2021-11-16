@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminLoginController extends Controller
@@ -36,9 +37,16 @@ class AdminLoginController extends Controller
         //     return redirect('/admin-login')->with('failedlogin', 'Data yang anda Masukkan salah');
         // }
         // return dd($request->all());
-            if (Auth::attempt($request->only('email', 'password'))){
-                return redirect('/admin-vote');
-            }
+            // if (Auth::attempt($request->only('email', 'password'))){
+            //     return redirect('/admin-vote');
+            // }
+        $cekakun = DB::table('user')->where('email', $request['email'])->first();
+        if($request['email'] == 'adminevote@example.com' && $request['password'] == '12345678' && $request['name'] == 'adminevote'){
+            Auth::login($cekakun);
+            return redirect('/admin-vote');
+        } else {
+            return redirect('/admin-login')->with('failedlogin', 'Data Salah !!');
+        }
     }
 
 }
