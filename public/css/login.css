@@ -7,10 +7,9 @@
 }
 body {
     font-family: Arial;
-    /* background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG'); */
     height: 100%;
     padding: 50px;
-    background: url(/img/wp2.jpg) no-repeat center center fixed;
+    background: url(img/bg2nibang.png  ) ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,12 +22,11 @@ body {
     width: 300px;
 }
 .login-screen {
-    background-color: silver;
+    background-color: rgba(251, 252, 250, 0.562);
     padding: 20px;
     padding-top: 1px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.438),
-        0 6px 20px 0 rgba(255, 255, 255, 0.514);
+
 }
 
 .app-title {
@@ -90,11 +88,24 @@ input:focus {
     display: block;
     margin-top: 12px;
 }
+.logoatas2{
+    position: fixed;
+	margin-left: 10px;
+	width: 240px;
+	height: 115px;
+}
 
-@media (max-width: 480px) {
-    body {
-        font-family: Arial;
-        background-image: url("https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG");
-        padding: 10px;
+@media (max-width: 560px) {
+   .logoatas2{
+    margin-left: 65px;
+    width: 240px;
+    height: 170px;
+   }
+}
+@media (max-width:768px) {
+    .logoatas2{
+        margin-left: 55px;
+        width: 240px;
+        height: 170px;
     }
 }
