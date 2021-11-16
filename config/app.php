@@ -234,7 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         "Socialite" => Laravel\Socialite\Facades\Socialite::class,
-        // 'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
+        'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
         
 
     ],

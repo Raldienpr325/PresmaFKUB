@@ -10,19 +10,19 @@
                 
                 <div class="form-group">
                     <input type="file" id="foto" name="foto"  class="form-control @error('foto') is-invalid 
-                    @enderror" placeholder="foto Presma" required autofocus value="{{ old('foto') }}">
+                    @enderror" placeholder="foto" required autofocus value="{{ old('foto') }}">
                 </div>
                 <div class="form-group">
                     <input type="text" id="na ma" name="nama"  class="form-control @error('nama') is-invalid 
-                    @enderror" placeholder="Nama Presma" required autofocus value="{{ old('nama') }}">
+                    @enderror" placeholder="Nama" required autofocus value="{{ old('nama') }}">
                 </div>
                 <div class="form-group">
                     <input type="text" id="angkatan" name="angkatan" class="form-control @error('angkatan') is-invalid     
-                    @enderror" placeholder="angkatan Presma" required autofocus value="{{ old('angkatan') }}">
+                    @enderror" placeholder="Angkatan" required autofocus value="{{ old('angkatan') }}">
                 </div>
                 <div class="form-group">
                     <input type="text" id="prodi" name="prodi" class="form-control @error('prodi') is-invalid     
-                    @enderror" placeholder="prodi Presma" required autofocus value="{{ old('prodi') }}">
+                    @enderror" placeholder="Prodi" required autofocus value="{{ old('prodi') }}">
                 </div>
                 <div class="form-group">
                     <input type="text" id="nourut" name="nourut"  class="form-control @error('nourut') is-invalid 

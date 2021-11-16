@@ -19,8 +19,8 @@ class CreatePresmasTable extends Migration
             $table->string('foto',100);
             $table->string('angkatan',4);
             $table->string('nama', 20);
-            $table->string('prodi', 10);
-            $table->string('nourut',5);
+            $table->string('prodi', 50);
+            $table->string('nourut',25);
             $table->timestamps();
         });
     }

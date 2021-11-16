@@ -21,7 +21,7 @@ Table Of Contents:
 /*     General Styles     */
 /**************************/
 :root {
-	--primary: #1c262f;
+	--primary: url(img/bg1bang.png);
 	--primary-light: #212d37;
 	--secondary: #0ee951;
 	--tertiary: #00dabf;
@@ -69,7 +69,7 @@ li {
 .plans,
 .work,
 .contact {
-	height: 110vh;
+	height: 100vh;
 	position: relative;
 }
 
@@ -130,7 +130,7 @@ li {
 /*     Button     */
 /******************/
 .btn {
-	color: white;
+	font-weight: 00;
 	border-radius: 0;
 	border-width: 2px;
 	padding: 10px 30px;

@@ -13,6 +13,6 @@ class LoginController extends Controller
     }
     
     public function logincontroller(){
-        return view('user.userlogin');
+        return view('user.opsi');
     }
 }

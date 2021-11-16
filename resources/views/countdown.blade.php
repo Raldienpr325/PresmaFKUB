@@ -7,10 +7,12 @@
     <title>PRESMA AND DPM FKUB  </title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href={{ asset('css/fontawesome-all.min.css') }} rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('adminLTE/plugins') }}/fontawesome-free/css/all.min.css">
     <link href={{ asset('css/style.css') }} rel="stylesheet">
 </head>
 
 <body>
+
     <div class="container">
         <h1 id="headline">Countdown </h1>
         <div id="countdown">
@@ -21,17 +23,18 @@
                 <li><span id="seconds"></span>Seconds</li>
             </ul>
             <ul>
+                
                 <li><a href="{{ url('login') }}">Vote !!</a></li>
                 <li><a href="{{ url('halaman-logintoken') }}">Gunakan Token</a></li>
                 {{-- <li><a href="{{ url('daftar-memilih') }}">Daftar Diri</a></li> --}}
             </ul>
         </div>
         <div id="button">
-            <a href="{{ url('opsi') }}"> <button class="btn btn-primary"> Go Vote !! </button></a>
+            <a href="{{ url('opsi') }}"> <button class="btn btn-primary btn-sm" style="margin: 20px"> Go Vote !! </button></a>
         </div>
 
         <div id="button" style="position: fixed; bottom: 60px; right: 20px;">
-            <a href="{{ url('user-service') }}"> <button class="btn btn-primary"> Problem ?? </button></a>
+            <a href="{{ url('user-service') }}"> <button class="btn btn-primary btn-sm fas fa-phone"> CP Person </button></a>
         </div>
 
     </div>
@@ -56,7 +59,7 @@
         display: flex;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-            background: url(/img/ubedit.png) no-repeat center center fixed; 
+            background: url(/img/ub3.jfif) no-repeat center center fixed; 
         -webkit-background-size: cover;
          -moz-background-size: cover;
         -o-background-size: cover;
@@ -64,15 +67,18 @@
     }
 
     .container {
+        /* font-family:georgia,garamond,serif;font-size:26px;font-style:italic; */
+        font-size: 26px;
+    
         color: white;
         margin: 0 auto;
-        width: 600px;
+        width: 700px;
         justify-content: center;
         text-align: center;
         background-color: #e1e1e16b;
         border-radius: 25px;
         padding-top: 15px;
-        box-shadow: 0 4px 8px 0 rgba(240, 240, 240, 0.2), 0 6px 20px 0 rgba(240, 240, 240, 0.2);
+        /* box-shadow: 0 4px 8px 0 rgba(240, 240, 240, 0.2), 0 6px 20px 0 rgba(240, 240, 240, 0.2); */
     }
 
     h1 {
