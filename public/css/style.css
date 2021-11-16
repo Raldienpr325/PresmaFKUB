@@ -130,7 +130,7 @@ li {
 /*     Button     */
 /******************/
 .btn {
-	color: white;
+	font-weight: 00;
 	border-radius: 0;
 	border-width: 2px;
 	padding: 10px 30px;

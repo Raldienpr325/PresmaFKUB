@@ -10,7 +10,7 @@ body {
     /* background-image: url('https://3.bp.blogspot.com/-NmC6GIpYEG0/UQ5YRLDa_TI/AAAAAAAAACc/ZfN1zcPMfJU/s1600/DSC_1704.JPG'); */
     height: 100%;
     padding: 50px;
-    background: url(/img/ub3edit.png) no-repeat center center fixed;
+    background: url(/img/wp2.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,7 +23,7 @@ body {
     width: 300px;
 }
 .login-screen {
-    background-color: rgba(255, 255, 255, 0.904);
+    background-color: silver;
     padding: 20px;
     padding-top: 1px;
     border-radius: 5px;
@@ -33,7 +33,7 @@ body {
 
 .app-title {
     text-align: center;
-    color: #777;
+    color: black;
     font-family: "poppins";
 }
 

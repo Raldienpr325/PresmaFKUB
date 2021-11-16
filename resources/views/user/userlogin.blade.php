@@ -31,7 +31,7 @@
 
 
             <div class="app-title">
-                <h4>Login Dengan Email UB!</h4>
+                <h4>Harap Login Menggunakan Email UB</h4>
             </div>
 
             <form method="get" action="{{ route('google.login') }}">
