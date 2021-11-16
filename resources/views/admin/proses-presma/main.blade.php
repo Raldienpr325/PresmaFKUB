@@ -11,15 +11,19 @@
             <tr>
                 <th>No</th>
                 <th>Users_id</th>
-                <th>Nama</th>
+                <th>Nama Pemilih</th>
+                <th>NIM Pemilih</th>
                 <th>Presmas_id</th>
+                <th>Nama Presmas</th>
             </tr>
             @foreach ($voting as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->usersid }} </td>
-                    <td>{{ $item->name }}</td>
+                    <td>{{ $item['user-name'] }}</td>
+                    <td>{{ $item['user-NIM'] }}</td>
                     <td>{{ $item->presmasid }}</td>
+                    <td>{{ $item['presma-name'] }}</td>
                 </tr>
             @endforeach
         </table>
