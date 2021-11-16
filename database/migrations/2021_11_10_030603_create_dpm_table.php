@@ -18,8 +18,8 @@ class CreateDpmTable extends Migration
             $table->string('fotodpm',100);
             $table->string('angkatandpm',4);
             $table->string('namadpm', 20);
-            $table->string('prodidpm', 10);
-            $table->string('nourutdpm',5);
+            $table->string('prodidpm', 50);
+            $table->string('nourutdpm',25);
             $table->timestamps();
         });
     }
