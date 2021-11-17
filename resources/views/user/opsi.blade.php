@@ -15,6 +15,7 @@
 <body >
     <img src="img/LOGO.png" width="240px" height="115px"  class="logoatas">
     <section class="services d-flex align-items-center py-5" id="services">
+        
         <div class="container text-light">
             <div class="text-center pb-4">
                 <h1 id="headline">Countdown </h1>
@@ -70,12 +71,13 @@
             </div>
         </div>
     </section>
+    
 </body>
 <style>
     body{
         background: url(img/bg1bang.png);
         background-attachment: fixed;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat;   
         background-size: cover;
     
     }
@@ -131,5 +133,6 @@
                 }
             }, 0);
     })();
+    
 </script>
 </html>
