@@ -27,15 +27,18 @@
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        @foreach ($datas as $data)
+       
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Voting PRESMA</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        @endforeach
+      
         <div class="modal-body">
-          <p>Apakah anda Sudah Yakin memilih {{ $data->nama }}Dengan No urut {{ $data->nourut }} ?</p>
+      
+            Apakah anda Sudah Yakin  ?
+          
         </div>
+    
         <div class="modal-footer">
           <a href="{{ url('user.done-vote',[
             'usersid'=>$data->id,

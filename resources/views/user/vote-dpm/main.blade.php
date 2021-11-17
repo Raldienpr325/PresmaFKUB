@@ -15,10 +15,10 @@
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
           </a>
         </div>
-        <div class="card-body " style="text-align: center">
+        <div class="card-body">
           <h5 class="card-title" ><h3>{{ $data->namadpm }} ( {{ $data->nourutdpm }} )</h3> </h5>
-          <p class="card-text"> Prodi {{ $data->prodidpm }} |  Angkatan {{ $data->angkatandpm }}</p>
-          <button type="button" class="btn btn-danger btn-lg d-grid gap-2 col-6 mx-auto " data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <p class="card-text"> Prodi {{ $data->prodidpm }} | Angkatan {{ $data->angkatandpm }}</p>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Vote
           </button>
         </div>
@@ -27,30 +27,29 @@
     
     @endforeach
   </div>
-  {{-- Modal section --}}
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        @foreach ($datas2 as $data)
+        
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Voting DPM</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        @endforeach
+     
         <div class="modal-body">
-          <p>Apakah anda Sudah Yakin memilih {{ $data->namadpm }} No urut {{ $data->nourutdpm }} ?</p>
+          <p>Apakah anda Sudah Yakin ?</p>
         </div>
         <div class="modal-footer">
           <a href="{{ url('user.done-vote2',[
             'usersid'=>$data->id,
             'name'=>Auth::user()->name]
             ) }}">
-            <button class="btn btn-primary">Yakin</button></a>
+            <button class="btn btn-primary " >Yakin</button></a>
         </div>
+      
       </div>
     </div>
   </div>
-  {{-- End Modal Section --}}
 </div>
 
 <style>

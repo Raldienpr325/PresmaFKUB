@@ -32,7 +32,7 @@ class VoteController extends Controller
     }
 
     public function datavotepresma(){
-        $cekpresensi = DB::table('votings')->where('user-name', Auth::user()->name)->first();
+        $cekpresensi = DB::table('votings')->where('user-NIM', Auth::user()->email)->first();
         if($cekpresensi){
             return view('user.Donevote', [
                 'title' => 'Vote Presma',
@@ -47,7 +47,7 @@ class VoteController extends Controller
     }
     
     public function datavotedpm(){
-        $cekpresensi = DB::table('voting2s')->where('user-name', Auth::user()->name)->first();
+        $cekpresensi = DB::table('voting2s')->where('user-name', Auth::user()->email)->first();
         if($cekpresensi){
             return view('user.logout.main', [
                 'title' => 'Logout Vote',
