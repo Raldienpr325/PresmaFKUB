@@ -29,7 +29,7 @@ Auth::routes();
 
 //khusu guest
 Route::get('/', [OpsiController::class, 'opsicontroller'])->middleware('guest');
-Route::get('/login', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'logincontroller'])->name('login');//->middleware('guest');
 Route::get('/admin-login', [AdminLoginController::class, 'index']);
 Route::post('/adminlogindata', [AdminLoginController::class, 'adminlogin'])->name('loginadmin')->middleware('guest');
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login')->middleware('guest');

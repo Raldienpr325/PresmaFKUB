@@ -63,7 +63,7 @@ class CeknimController extends Controller
             // dd($user);
         }
         else {
-            return redirect('/halaman-ceknim')->with('failedlogin', 'NIM anda tidak sesuai!!');
+            return redirect('/halaman-ceknim')->with('failedceknim', 'NIM anda tidak sesuai!!');
             exit;
         }
 
