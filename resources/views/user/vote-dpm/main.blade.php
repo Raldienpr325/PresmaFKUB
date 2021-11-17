@@ -1,7 +1,7 @@
 @extends('user.main')
 @section('uvote-dpm')
 
-<div class="container">
+<div class="container" style="padding: 20px">
   <div class="row">
     @foreach ($datas2 as $data)
     <div class="col-md-4 p-md-4">

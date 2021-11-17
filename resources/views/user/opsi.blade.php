@@ -27,7 +27,7 @@
                         <li class="tes1"><span id="seconds"></span><br>Detik</li>
                     </ul>
                 </div>
-                <p class="selamat-datang">Selamat Datang Di E-Vote PRESMA & DPM FKUB 2021/2022 Universitas Brawijaya Malang</p>
+                <p class="selamat-datang">Selamat Datang di PEMILWA Fakultas Kedokteran Universitas Brawijaya 2021 </p>
                 <h2 class="py-2"></h2>
      
                 <br>
@@ -98,7 +98,7 @@
             hour = minute * 60,
             day = hour * 24;
 
-        let theday = "Nov 24, 201 20:54:50",
+        let theday = "Nov 17, 2021 22:39:30",
             countDown = new Date(theday).getTime(),
             x = setInterval(function() {
                 let now = new Date().getTime(),
@@ -121,7 +121,7 @@
                         content = document.getElementById("content"),
                         btn = document.getElementById("button");
 
-                    headline.innerText = "It's The day !! ";
+                    headline.innerText = "ATLANTIS PEMILWA ";
                     btn.style.display = "block"
                     countdown.style.display = "none";
                     content.style.display = "block";

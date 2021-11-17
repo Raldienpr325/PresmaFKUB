@@ -2,7 +2,8 @@
 @section('uvote-presma')
 
 
-<div class="container">
+
+<div class="container" style="padding:20px;">
   <div class="row">
     @foreach ($datas as $data)
     <div class="col-md-4 p-md-4">

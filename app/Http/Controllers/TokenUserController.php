@@ -52,7 +52,7 @@ class TokenUserController extends Controller
             }
         }
         else{
-            return redirect('halaman-logintoken')->with('false-token', 'Maaf TOKEN anda SALAH !!');
+            return redirect('halaman-logintoken')->with('false-token', 'Token Tidak Sesuai ');
         }
     }
 
