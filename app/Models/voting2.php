@@ -13,6 +13,7 @@ class voting2 extends Model
        'usersid',
        'user-name',
        'user-NIM',
+       'google_id',
        'dpm-name',
        'dpmsid'];
 }

@@ -11,6 +11,7 @@
             <tr>
                 <th>No</th>
                 <th>Users_id</th>
+                <th>Users_Google_id</th>
                 <th>Nama Pemilih</th>
                 <th>NIM Pemilih</th>
                 <th>Presmas_id</th>
@@ -20,6 +21,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->usersid }} </td>
+                    <td>{{ $item->google_id }} </td>
                     <td>{{ $item['user-name'] }}</td>
                     <td>{{ $item['user-NIM'] }}</td>
                     <td>{{ $item->presmasid }}</td>

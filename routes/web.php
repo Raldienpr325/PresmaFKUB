@@ -39,7 +39,7 @@ Route::post('/cek-token', [TokenUserController::class, 'cektoken'])->name('cekto
 Route::post('/pesan-masalah', [TokenUserController::class, 'kirimpesanmasalah'])->name('usertambahan')->middleware('guest');
 Route::get('/user-service', [TokenUserController::class, 'halamanusertambahan'])->name('user-service')->middleware('guest');
 
-Route::get('/halaman-last-session', [LoginController::class, 'logincontroller'])->name('login')->middleware('guest');
+Route::get('/halaman-last-session', [LoginController::class, 'logincontroller'])->name('relogin')->middleware('guest');
 
 
 
