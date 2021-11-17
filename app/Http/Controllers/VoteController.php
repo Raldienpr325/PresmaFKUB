@@ -32,7 +32,7 @@ class VoteController extends Controller
     }
 
     public function datavotepresma(){
-        $cekpresensi = DB::table('votings')->where('google_id', Auth::user()->id)->first();
+        $cekpresensi = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
         if($cekpresensi){
             return view('user.Donevote', [
                 'title' => 'Vote Presma',
@@ -47,7 +47,7 @@ class VoteController extends Controller
     }
     
     public function datavotedpm(){
-        $cekpresensi = DB::table('voting2s')->where('google_id', Auth::user()->id)->first();
+        $cekpresensi = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
         if($cekpresensi){
             return view('user.logout.main', [
                 'title' => 'Logout Vote',
@@ -60,6 +60,7 @@ class VoteController extends Controller
         }
     }
     public function vote($id){
+        $datatabeluser = DB::table('users')->where('email', Auth::user()->email)->first();
         $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
         $datapresma = DB::table('presmas')->where('id', $id)->first();
         // dd($datauser->NIM);
@@ -70,7 +71,7 @@ class VoteController extends Controller
                 'user-name'=> $datauser->nama,
                 'user-NIM' => $datauser->NIM,
                 'presma-name' => $datapresma->nama,
-                'google_id' => $datauser->id,
+                'google_id' => $datatabeluser->google_id,
                 'presmasid'=>$id,
                 'usersid'=>Auth::user()->id,
                 'name'=>Auth::user()->name
@@ -88,6 +89,7 @@ class VoteController extends Controller
     }
 
     public function vote2($id){
+        $datatabeluser = DB::table('users')->where('email', Auth::user()->email)->first();
         $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
         $datadpm = DB::table('dpms')->where('id', $id)->first();
         voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
@@ -95,7 +97,7 @@ class VoteController extends Controller
             ['dpmsid'=>$id,
             'user-name' => $datauser->nama,
             'user-NIM' => $datauser->NIM,
-            'google_id' => $datauser->id,
+            'google_id' => $datatabeluser->google_id,
             'dpm-name' => $datadpm->namadpm,
             'usersid'=>Auth::user()->id,
             'name'=> Auth::user()->name] #Jika data belum ada maka add presmas_id dan users_id
