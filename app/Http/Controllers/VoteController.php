@@ -48,7 +48,13 @@ class VoteController extends Controller
     
     public function datavotedpm(){
         $cekpresensi = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
-        if($cekpresensi){
+        $cekpresensipresma = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
+        if(!$cekpresensipresma){
+            return view('user.Donevote', [
+                'title' => 'Vote Presma',
+            ]);
+        }
+        else if($cekpresensi){
             return view('user.logout.main', [
                 'title' => 'Logout Vote',
             ]);
