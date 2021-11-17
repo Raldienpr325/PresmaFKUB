@@ -18,6 +18,7 @@ class CreateVoting extends Migration
             $table->bigInteger('usersid')->unsigned();
             $table->string('user-name');
             $table->string('user-NIM');
+            $table->string('google_id');
             $table->string('presma-name');
             $table->bigInteger('presmasid')->unsigned();
             $table->timestamps();

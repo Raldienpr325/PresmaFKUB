@@ -14,6 +14,7 @@ class voting extends Model
        'usersid',
        'user-name',
        'user-NIM',
+       'google_id',
        'presma-name',
        'presmasid'];
     

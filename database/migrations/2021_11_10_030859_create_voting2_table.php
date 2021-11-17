@@ -18,6 +18,7 @@ class CreateVoting2Table extends Migration
             $table->bigInteger('usersid')->unsigned();
             $table->string('user-name');
             $table->string('user-NIM');
+            $table->string('google_id');
             $table->string('dpm-name');
             $table->bigInteger('dpmsid')->unsigned();
             $table->timestamps();
