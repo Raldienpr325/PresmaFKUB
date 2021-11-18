@@ -23,7 +23,7 @@
                 'usersid'=>$data->id,
                 'name'=>Auth::user()->name]
                 ) }}">
-                <button class="btn btn-primary btn-lg " >Vote</button>  </a>
+                <button class="glow-on-hover " >Vote</button>  </a>
         </div>
       </div>
     </div>
@@ -34,9 +34,92 @@
 </div>
 
 
-  
+  </div>
 
 <style>
+  html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.glow-on-hover {
+    width: 140px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+    .img-fluid{
+    width: 400px;
+    height: 480px;
+  }
+  @media (max-width:560px){
+    .img-fluid{
+      margin-left: 110px;
+      margin-top:20px;
+      width: 220px;
+      height: 320px;
+    }
+    .card{
+      padding: 5px;
+      margin: 5px;      
+    }
+
+  }
   :root {
   --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
 }
@@ -52,25 +135,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.btn {
-  border: 5px solid;
-  border-image-slice: 1;
-  background: var(--gradient) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  border-image-source:  var(--gradient) !important; 
-  text-decoration: none;
-  transition: all .4s ease;
-}
 
-.btn:hover, .btn:focus {
-      background: var(--gradient) !important;
-  -webkit-background-clip: none !important;
-  -webkit-text-fill-color: #fff !important;
-  border: 5px solid #fff !important; 
-  box-shadow: #222 1px 0 10px;
-  text-decoration: underline;
-}
   </style>
 
 @include('sweetalert::alert')
