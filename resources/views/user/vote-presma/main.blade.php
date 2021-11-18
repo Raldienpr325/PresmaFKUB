@@ -7,11 +7,11 @@
   <div class="row">
     @foreach ($datas as $data)
     <div class="col-md-4 p-md-4">
-      <div class="card" style="box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top:-15px" >
+      <div class="card" style="box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding:10px;" >
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
           <img
             src="{{ asset('storage/'. $data->foto) }}"
-            class="img-fluid"  
+            class="card-img-top"
           />
           <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
