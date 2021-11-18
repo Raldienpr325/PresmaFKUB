@@ -13,5 +13,20 @@
         </button>
     </form>
 </div>
+<style>
+    h1{
+        font-size: 26px
+    }
+    .logoatas{
+        margin-left: -30px
+    }
+
+    @media (min-width:360px){
+        h1{
+            font-size: 16px
+        }
+        
+    }
+</style>
 
 @endsection

@@ -33,7 +33,11 @@
 </div>
 
 <style>
-  
+  .card{
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
   html,
 body {
     margin: 0;
@@ -45,6 +49,15 @@ body {
     justify-content: center;
     align-items: center;
     background: #000;
+   
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
 
 .glow-on-hover {
