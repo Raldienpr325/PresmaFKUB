@@ -33,7 +33,14 @@ class VoteController extends Controller
 
     public function datavotepresma(){
         $cekpresensi = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
-        if($cekpresensi){
+        $dpm = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
+
+        if ($dpm && $cekpresensi) {
+            return view('user.Donevote', [
+                'title' => 'Vote Presma',
+            ]);
+        }
+        else if($cekpresensi){
             return view('user.Donevote', [
                 'title' => 'Vote Presma',
             ]);
@@ -48,12 +55,14 @@ class VoteController extends Controller
     
     public function datavotedpm(){
         $cekpresensi = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
-        $cekpresensipresma = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
-        if(!$cekpresensipresma){
+        $presma = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
+        
+        if(!$presma && $cekpresensi){
             return view('user.Donevote', [
-                'title' => 'Vote Presma',
+                'title' => 'Vote Presma',   
             ]);
         }
+        
         else if($cekpresensi){
             return view('user.logout.main', [
                 'title' => 'Logout Vote',
@@ -68,6 +77,8 @@ class VoteController extends Controller
     public function vote($id){
         $datatabeluser = DB::table('users')->where('email', Auth::user()->email)->first();
         $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
+        $presma = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
+        $dpm = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
         $datapresma = DB::table('presmas')->where('id', $id)->first();
         // dd($datauser->NIM);
         $datadpm = dpm::all();
@@ -87,16 +98,31 @@ class VoteController extends Controller
             // ['presmasid'=>$id,'usersid'=>Auth::user()->id,'name'=>Auth::user()->name]
             #Jika data belum ada maka add presmas_id dan users_id
         );
-        return view('user.vote-dpm.main',[ 
-            'title' => 'Done Vote',
-            'datas2' =>$datadpm,
-            'databaru' =>$data,
+        if($dpm && $presma){
+            return view('user.logout.main', [
+                'title' => 'Logout Vote',
             ]);
+        }
+        if($dpm){
+            return view('user.Donevote', [
+                'title' => 'Vote Presma',
+            ]);
+        }
+        else{
+            return view('user.vote-dpm.main',[ 
+                'title' => 'Done Vote',
+                'datas2' =>$datadpm,
+                'databaru' =>$data,
+                ]);
+        }
+       
     }
 
     public function vote2($id){
         $datatabeluser = DB::table('users')->where('email', Auth::user()->email)->first();
         $datauser = DB::table('ceknims')->where('email', Auth::user()->email)->first();
+        $presma = DB::table('votings')->where('google_id', Auth::user()->google_id)->first();
+        $dpm = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
         $datadpm = DB::table('dpms')->where('id', $id)->first();
         voting2::firstOrCreate( #dicek datanya belum ada maka create , kalau ada tidak melakukan apapun
             ['usersid'=>Auth::user()->id], #parameter pertama digunakan untuk mengecek
@@ -108,8 +134,16 @@ class VoteController extends Controller
             'usersid'=>Auth::user()->id,
             'name'=> Auth::user()->name] #Jika data belum ada maka add presmas_id dan users_id
         );
-      return view('user.logout.main', [
-        'title' => 'Logout Vote',
-    ]);
+        if($presma && $dpm ){
+            return view('user.logout.main', [
+                'title' => 'Logout Vote',
+            ]);
+        }
+        else{
+            return view('user.Donevote', [
+                'title' => 'Vote Presma',
+            ]);
+        }
+     
     }
 }
