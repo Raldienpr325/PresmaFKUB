@@ -11,20 +11,12 @@
                         <button class="btn btn-danger" type="submit">Search</button>
                     </div>
                 </form>
-                        
-
-                @if(session()->has('notfound'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('notfound') }}
-                </div>
-                @endif
             </div>
 
         </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
-                    <th>No</th>
                     <th>Users_id</th>
                     <th>Users_Google_id</th>
                     <th>Nama Pemilih</th>
@@ -35,7 +27,6 @@
                 </tr>
                 @foreach ($voting2 as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->usersid }}</td>
                         <td>{{ $item->google_id }}</td>
                         <td>{{ $item['user-name'] }}</td>

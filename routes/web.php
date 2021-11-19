@@ -59,6 +59,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin-proses-dpm', [VoteMainController::class, 'voting2']);
         Route::get('/admin-hasil-presma', [VoteMainController::class, 'hasilvoting']);
         Route::get('/admin-hasil-dpm', [VoteMainController::class, 'hasilvoting2']);
+        Route::get('/cari-pemilih-dpm', [VoteMainController::class, 'caripemilihdpm'])->name('caripemilihdm');
+        Route::get('/cari-pemilih-presma', [VoteMainController::class, 'caripemilihpresma'])->name('caripemilihpresma');
         
         
         Route::get('/admin-vote', [VoteMainController::class, 'votemaincontroller']);

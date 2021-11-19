@@ -4,6 +4,21 @@
     <div class="card card-info card-outline">
         <div class="card-header">
             <a href="{{ url('export-proses-presma') }}" class="btn btn-warning"> Export</a>
+            <form action="{{ route('caripemilihpresma') }}">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cari Nama / Nim Pemilih.." name="search">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </form>
+
+            
+            @if(session()->has('notfound'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('notfound') }}
+            </div>
+            @endif
+
+
         </div>
     </div>
     <div class="card-body">

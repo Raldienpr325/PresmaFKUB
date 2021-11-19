@@ -11,6 +11,7 @@ use App\Models\dpm;
 use App\Models\voting;
 use App\Models\voting2;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class VoteMainController extends Controller
@@ -88,20 +89,49 @@ class VoteMainController extends Controller
     }
     
     public function voting2() {
-        $pemilihdpm = voting2::latest();
+        // $pemilihdpm = voting2::latest();
         
-        if(request('search')){
-            $pemilihdpm->where('user-NIM','like','%'.request('search').'%')
-                       ->orWhere('user-name','like','%'.request('search').'%');
-        }
+        // if(request('search')){
+        //     $pemilihdpm->where('user-NIM','like','%'.request('search').'%')
+        //                ->orWhere('user-name','like','%'.request('search').'%');
+        // }
+        // $pemilih = DB::table('voting2s')->where('NIM', $request)->first();
         $voting2 = voting2::paginate(4000);
         return view('admin.proses-dpm.main', [
             'title' => 'Proses Vote Presma',
-            'user-NIM' => $pemilihdpm->get(),
-            'user-name' =>$pemilihdpm->get()
         ], 
         compact('voting2'));
     }
+
+    public function caripemilihdpm(Request $request){
+        $pemilihdpm = DB::table('voting2s')->where('user-NIM','like', '%' . $request['search'] . '%')
+                                           ->orWhere('user-name','like','%'. $request['search'].'%')->first();
+        if($pemilihdpm == null){
+            return redirect('/admin-proses-dpm')->with('notfound', 'Data Belum Ada');
+        } else{
+            $voting2 = voting2::paginate(4000);
+            return view('admin.caripemilihdpm',[
+            'title' => 'Data Yang di Cari'
+        ],compact('voting2'));
+        }
+
+    }
+
+    public function caripemilihpresma(Request $request){
+        $pemilihdpm = DB::table('votings')->where('user-NIM','like', '%' . $request['search'] . '%')
+                                           ->orWhere('user-name','like','%'. $request['search'].'%')->first();
+        if($pemilihdpm == null){
+            return redirect('/admin-proses-presma')->with('notfound', 'Data Belum Ada');
+        } else{
+            $voting = voting::paginate(4000);
+            return view('admin.caripemilihpresma',[
+            'title' => 'Data Yang di Cari'
+        ],compact('voting'));
+        }
+
+    }
+
+
     
     public function create()
     {
