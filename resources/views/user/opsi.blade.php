@@ -62,7 +62,7 @@
                         </div>
                     </form>
                   
-                    <div id="button" style="position: fixed; bottom: 60px; right: 20px;">
+                    <div id="button2" >
                         <h5>Need help?</h5>
                         <a href="{{ url('user-service') }}" ><img src="img/wabang.png" width="45px" height="40px">Contact Us</a>
                     </div>
@@ -99,7 +99,7 @@
             hour = minute * 60,
             day = hour * 24;
 
-        let theday = "Nov 17, 2021 22:39:30",
+        let theday = "Nov 19, 2021 17:48:30",
             countDown = new Date(theday).getTime(),
             x = setInterval(function() {
                 let now = new Date().getTime(),
@@ -125,7 +125,6 @@
                     headline.innerText = "ATLANTIS PEMILWA ";
                     btn.style.display = "block"
                     countdown.style.display = "none";
-                    content.style.display = "block";
                     clearInterval(x);
                 }
                 if (distance > 0) {

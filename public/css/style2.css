@@ -183,6 +183,16 @@ p {
       margin-top: 70px;
     }
   }
+  @media (max-width:321px)  { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+    .logoatas{
+      display: none;
+      
+    }
+    #emailub{
+      margin-top: -10px;
+    }
+  }
 @media (min-width:481px)  { 
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
   .logoatas{
@@ -249,4 +259,4 @@ p {
   #emailub{
     margin-top: 40px;
   }
-  }
+}
