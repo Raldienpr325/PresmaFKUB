@@ -254,7 +254,12 @@ li {
 	#button2{
 		margin-top: 120px;
 	}
+	.logoatas{
+		height: 100px;
+		width: 180px;
+	}
 }
+
 @media (max-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
 	.selamat-datang{
 		font-size: 14px;
@@ -287,14 +292,14 @@ li {
 		
 	}
 	#headline{
-		margin-top: -220px;
+		margin-top: 20px;
 		font-size: 32px;
 	}
 	#button2{
-		margin-top: 20px;
+		margin-top: 160px;
 	}
 	.logoatas{
-		width: 150px;
+		width: 170px;
 		height: 100px;
 	}
 }
@@ -304,7 +309,7 @@ li {
 		
 	}
 	#headline{
-		margin-top: -420px;
+		margin-top: 20px;
 		font-size: 32px;
 	}
 	#button2{
@@ -327,18 +332,18 @@ li {
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ 
 	.selamat-datang{
-		font-size: 14px;
+		font-size: 18px;
 		
 	}
 	#headline{
 		margin-top: 120px;
-		font-size: 32px;
+		font-size: 42px;
 	}
 	#button2{
-		margin-top: 120px;
+		margin-top: 190px;
 	}
 	.logoatas{
-		width: 180px;
+		width: 250px;
 		height: 120px;
 	}
 }

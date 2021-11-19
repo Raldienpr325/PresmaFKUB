@@ -12,14 +12,14 @@
     <link href={{ asset('css/style.css') }} rel="stylesheet">
 </head>
 
-<body >
-    <img src="img/LOGO.png" width="240px" height="115px"  class="logoatas">
+<body>
+    <img src="img/LOGO.png" width="240px" height="115px" class="logoatas">
     <section class="services d-flex align-items-center py-5" id="services">
-        
+
         <div class="container text-light">
             <div class="text-center pb-4">
                 <h1 id="headline">Countdown </h1>
-                <div id="countdown" >
+                <div id="countdown">
                     <ul>
                         <li class="tes1"><span id="days"></span><br>Hari</li>
                         <li class="tes1"><span id="hours"></span><br>Jam</li>
@@ -29,21 +29,21 @@
                 </div>
                 <p class="selamat-datang">Selamat Datang di PEMILWA Fakultas Kedokteran Universitas Brawijaya 2021 </p>
                 <h2 class="py-2"></h2>
-     
+
                 <br>
 
-                @if(session()->has('failedlogin'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('failedlogin') }}
-                
-                </div>
+                @if (session()->has('failedlogin'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('failedlogin') }}
+
+                    </div>
                 @endif
-    
-                @if(session()->has('failedrelogin'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('failedrelogin') }}
-                  
-                </div>
+
+                @if (session()->has('failedrelogin'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('failedrelogin') }}
+
+                    </div>
                 @endif
                 {{-- <div class="app-title">
                     <h4>Harap Login Menggunakan Email UB</h4>
@@ -52,36 +52,38 @@
                 <div id="button">
                     <form method="get" action="{{ route('google.login') }}">
                         @csrf
-        
+
                         <div class="login-form">
-        
+
                             <button type="submit" class="btn btn-primary">
                                 {{ __('LOGIN') }}
                             </button>
-        
+
                         </div>
                     </form>
-                  
-                    <div id="button2" >
+
+                    <div id="button2">
                         <h5>Need help?</h5>
-                        <a href="{{ url('user-service') }}" ><img src="img/wabang.png" width="45px" height="40px">Contact Us</a>
+                        <a href="{{ url('user-service') }}"><img src="img/wabang.png" width="45px"
+                                height="40px">Contact Us</a>
                     </div>
-                    
+
                 </div>
-             
+
             </div>
         </div>
     </section>
-    
+
 </body>
 <style>
-    body{
+    body {
         background: url(img/bg1bang.png);
         background-attachment: fixed;
-        background-repeat: no-repeat;   
+        background-repeat: no-repeat;
         background-size: cover;
-    
+
     }
+
     li {
         margin-top: -1.2em;
         display: inline-block;
@@ -90,6 +92,7 @@
         padding: 1em;
         text-transform: uppercase;
     }
+
 </style>
 
 <script>
@@ -133,6 +136,6 @@
                 }
             }, 0);
     })();
-    
 </script>
+
 </html>

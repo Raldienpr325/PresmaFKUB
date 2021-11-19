@@ -87,12 +87,20 @@ class VoteMainController extends Controller
         return view('admin.hasil-dpm.main',compact('title','hasil2'));
     }
     
-    public function voting2()
-    {
-        $voting2 = voting2::paginate(15);
+    public function voting2() {
+        $pemilihdpm = voting2::latest();
+        
+        if(request('search')){
+            $pemilihdpm->where('user-NIM','like','%'.request('search').'%')
+                       ->orWhere('user-name','like','%'.request('search').'%');
+        }
+        $voting2 = voting2::paginate(4000);
         return view('admin.proses-dpm.main', [
             'title' => 'Proses Vote Presma',
-        ], compact('voting2'));
+            'user-NIM' => $pemilihdpm->get(),
+            'user-name' =>$pemilihdpm->get()
+        ], 
+        compact('voting2'));
     }
     
     public function create()

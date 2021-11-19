@@ -12,7 +12,7 @@
 <body>
     <div class="login">
         <div class="login-screen">
-            
+
             <div class="app-title">
                 <h4>Masukkan Data Diri Anda</h4>
             </div>
@@ -27,17 +27,17 @@
                 </div>
 
                 <div class="control-group">
-                    <input type="text" class="login-field" value="" placeholder="Nama" id="login-name"
-                        name="nama" required>
+                    <input type="text" class="login-field" value="" placeholder="Nama" id="login-name" name="nama"
+                        required>
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
 
                 <div class="control-group">
                     <input type="text" class="login-field" value="" placeholder="Nomor Induk" id="login-name"
-                    name="NIP" required>
+                        name="NIP" required>
                     <label class="login-field-icon fui-user" for="login-name"></label>
                 </div>
-                
+
                 {{-- <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="pemilih" id="flexCheckDefault" name="level">
                     <label class="form-check-label" for="flexCheckDefault">
