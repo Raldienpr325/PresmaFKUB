@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nomor Induk Mahasiswa</title>
@@ -29,7 +30,7 @@
               </div>
               @endif
 
-              <div class="form-group first" style="margin-top:40px">
+              <div class="form-group first" id="emailub">
                 <label for="email">Email UB</label>
                 <input type="text" class="form-control" value="{{ Auth::user()->email }}"  id="email" name="email" readonly>
               </div>

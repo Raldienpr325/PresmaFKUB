@@ -160,16 +160,93 @@ p {
   .logoatas{
     width: 380px;
     height: 215px;
-    position: fixed;
     margin-left: 185px;
     margin-top: 20px;
+    position: sticky;
   } 
-  @media (max-width:991px){
+  #emailub{
+    margin-top: 451px;
+  }
+
+
+  @media (min-width:320px)  { 
+    /* smartphones, iPhone, portrait 480x320 phones */ 
     .logoatas{
+      position: fixed;
       margin-top: 260px;
-      margin-left: 115px;
+      margin-left: 55px;
       width: 260px;
       height: 150px;
       
     }
+    #emailub{
+      margin-top: 70px;
+    }
+  }
+@media (min-width:481px)  { 
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+  .logoatas{
+    /* margin-top: 260px; */
+    /* margin-left: 1175px; */
+    width: 260px;
+    height: 150px;
+    
+  }
+  #emailub{
+    margin-top: 40px;
+  }
+}
+@media (min-width:641px)  { 
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+  .logoatas{
+    margin-left: 255px;
+    width: 260px;
+    height: 150px;
+    
+  }
+  #emailub{
+    margin-top: 10px;
+  }
+}
+@media (min-width:961px)  { 
+  /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+  .logoatas{
+    margin-top: 100px;
+    position: fixed;
+    margin-left: 135px;
+    width: 260px;
+    height: 150px;
+    
+  }
+  #emailub{
+    margin-top: 70px;
+  }
+}
+@media (min-width:1023px) { 
+  /* big landscape tablets, laptops, and desktops */
+  .logoatas{
+    margin-top: 100px;
+    position: fixed;
+    margin-left: 135px;
+    width: 260px;
+    height: 150px;
+    
+  }
+  #emailub{
+    margin-top: -370px;
+  }
+ }
+@media (min-width:1281px) {
+   /* hi-res laptops and desktops */ 
+   .logoatas{
+     margin-top: 100px;
+    position: fixed;
+    margin-left: 245px;
+    width: 260px;
+    height: 150px;
+    
+  }
+  #emailub{
+    margin-top: 40px;
+  }
   }
