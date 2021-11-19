@@ -36,8 +36,8 @@ class VoteController extends Controller
         $dpm = DB::table('voting2s')->where('google_id', Auth::user()->google_id)->first();
 
         if ($dpm && $cekpresensi) {
-            return view('user.Donevote', [
-                'title' => 'Vote Presma',
+            return view('user.logout.main', [
+                'title' => 'Logout Vote',
             ]);
         }
         else if($cekpresensi){
@@ -104,8 +104,8 @@ class VoteController extends Controller
             ]);
         }
         if($dpm){
-            return view('user.Donevote', [
-                'title' => 'Vote Presma',
+            return view('user.logout.main', [
+                'title' => 'Logout Vote',
             ]);
         }
         else{
@@ -113,7 +113,7 @@ class VoteController extends Controller
                 'title' => 'Done Vote',
                 'datas2' =>$datadpm,
                 'databaru' =>$data,
-                ]);
+            ]);
         }
        
     }
@@ -140,9 +140,15 @@ class VoteController extends Controller
             ]);
         }
         else{
+            if($presma){
+                return view('user.logout.main', [
+                    'title' => 'Logout Vote',
+                ]);
+            }else {
             return view('user.Donevote', [
                 'title' => 'Vote Presma',
             ]);
+        }
         }
      
     }
