@@ -24,7 +24,7 @@ class CeknimController extends Controller
         ]);
         // dd($request);
         // dd($validatedData);
-        $validasiNIM = explode("5060",$validatedData['NIM']);
+        $validasiNIM = explode("5070",$validatedData['NIM']);
         if( strlen($validasiNIM['0']) == "2" && strlen($validasiNIM['1']) == "9"){
             $cekkeberadaanNIM = DB::table('ceknims')->where('email', $validatedData['email'])->value('NIM');
             $cekkeberadaanemail = DB::table('ceknims')->where('email', $validatedData['email'])->first();
