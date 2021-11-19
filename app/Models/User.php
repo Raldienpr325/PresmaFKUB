@@ -25,7 +25,7 @@ class User extends Authenticatable
         'password',
         'google_id',
         // 'username',
-        'locale',
+        'locale'
     ];
 
     /**

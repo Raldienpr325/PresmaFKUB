@@ -9,7 +9,7 @@ class TokenUser extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'token','name','email','locale','google_id','level',];
+        'token','name','email','locale','google_id','level'];
 
     protected $hidden = [
         'password',

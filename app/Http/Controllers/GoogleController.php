@@ -48,6 +48,7 @@ class GoogleController extends Controller
                     'locale' => $user->user['locale'],
                     'password' => bcrypt('12345678'),
                     'level' => 'user',
+                    'detik' => strtotime('now')
                 ]);
                 // dd($user);
                 Auth::login($newUser);
